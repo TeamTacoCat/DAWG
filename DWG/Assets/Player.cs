@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public bool grounded = true;
+
 	//This is the current power up that the player has available.
 	private int powerUp;
 
@@ -13,6 +15,10 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		grounded = GetComponentInChildren<GroundCheck> ().ground;
+
+
 	
 	}
 

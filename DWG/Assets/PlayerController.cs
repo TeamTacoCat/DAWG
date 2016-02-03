@@ -6,8 +6,11 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]private float maxSpeed;
 	[SerializeField]private float accel;
 	[SerializeField]private float rotAccel;
-
 	[SerializeField]private float jumpHeight;
+	[SerializeField]private Transform pivot;
+
+	public GameObject cam;
+	public GameObject look;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +20,20 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		HorizontalMovement ();
+		LookDirection ();
+		Jump ();
+
+		//HORIZONTAL MOVEMENT
+
+
+		//Vector3 lookDir = transform.position + transform.TransformDirection (((zDir * (z / Mathf.Abs (z))) + cam.transform.right).normalized);
+
+
+		//transform.LookAt (transform.TransformDirection (transform.right));
+		//transform.LookAt(cam.transform.position);
+
+		/*
 		if (Input.GetAxis ("Horizontal") != 0) {
 		
 			transform.Rotate(0f, rotAccel*Input.GetAxis("Horizontal"), 0f);
@@ -37,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 				GetComponent<Rigidbody>().AddForce(transform.forward*accel*Input.GetAxis ("Vertical"));
 
 			}
+
 //			else{
 //
 //				Vector3 locVelV3 = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
@@ -51,15 +69,48 @@ public class PlayerController : MonoBehaviour {
 			print("Velocity:  "+locVel);
 		
 		}
+	*/
 
+
+	
+	}
+
+	void HorizontalMovement(){
+	
+		float x = Input.GetAxis ("Horizontal") * accel;
+		float z = Input.GetAxis ("Vertical") * accel;
+
+		Vector3 zDir = (transform.position - cam.transform.position).normalized;
+		zDir.y = 0;
+
+		GetComponent<Rigidbody> ().AddForce (zDir * z);
+		GetComponent<Rigidbody> ().AddForce (cam.transform.right * x);
+	
+	}
+
+	void LookDirection(){
+	
+		look.transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+		look.transform.position = look.transform.position + (cam.transform.right * Input.GetAxis ("Horizontal")) + (cam.transform.forward * Input.GetAxis ("Vertical"));
+
+		if (look.transform.position != this.transform.position) {
+			transform.LookAt (look.transform.position);
+		}
+	
+	}
+
+	void Jump(){
+	
 		if (Input.GetButtonDown ("Jump")) {
 
 			float force = Mathf.Sqrt(2*Physics.gravity.y*-1*jumpHeight);
 			print("Jumpforce:  "+force);
 			//GetComponent<Rigidbody>().AddForce(Vector3.up*force);
-			GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, force, GetComponent<Rigidbody>().velocity.z);
-
+			if (GetComponent<Player> ().grounded) {
+				GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
+			}
 		}
 	
 	}
+
 }
