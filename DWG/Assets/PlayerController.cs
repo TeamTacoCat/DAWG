@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour {
 
 		HorizontalMovement ();
 		LookDirection ();
-		Jump ();
+		if (Input.GetButtonDown ("Jump")) {
+			Jump ();
+		}
 
 		//HORIZONTAL MOVEMENT
 
@@ -70,9 +72,40 @@ public class PlayerController : MonoBehaviour {
 		
 		}
 	*/
+		/*
+		if(Input.GetKey("camUp")){
+
+			//camBoom2.transform.Rotate (10, 0, 0);
+			cam.transform.RotateAround (this.transform.position, cam.transform.right, 5);
+			//camBoom.transform.position = new Vector3(this.transform.position.x, cam.transform.position.y, this.transform.position.z);
 
 
+		}if(Input.GetKey("camDown")){
+
+			//camBoom2.transform.Rotate (-10, 0, 0);
+			cam.transform.RotateAround (this.transform.position, cam.transform.right, -5);
+			//camBoom.transform.position = new Vector3(this.transform.position.x, cam.transform.position.y, this.transform.position.z);
+
+
+		}if(Input.GetKey("camRight")){
+
+			//camBoom.transform.Rotate (0, -10, 0);
+			//cam.transform.RotateAround (camBoom.transform.position, Vector3.down, 5);
+			cam.transform.RotateAround (this.transform.position, transform.up, -5);
+
+
+		}if(Input.GetKey("camLeft")){
+
+			//camBoom.transform.Rotate (0, 10, 0);
+			//cam.transform.RotateAround (camBoom.transform.position, Vector3.up, 5);
+			cam.transform.RotateAround (this.transform.position, transform.up, 5);
+
+
+		}
+		*/
 	
+
+
 	}
 
 	void HorizontalMovement(){
@@ -83,8 +116,10 @@ public class PlayerController : MonoBehaviour {
 		Vector3 zDir = (transform.position - cam.transform.position).normalized;
 		zDir.y = 0;
 
-		GetComponent<Rigidbody> ().AddForce (zDir * z);
-		GetComponent<Rigidbody> ().AddForce (cam.transform.right * x);
+		if (GetComponent<Rigidbody> ().velocity.magnitude < maxSpeed) {
+			GetComponent<Rigidbody> ().AddForce (zDir * z);
+			GetComponent<Rigidbody> ().AddForce (cam.transform.right * x);
+		}
 	
 	}
 
@@ -92,6 +127,7 @@ public class PlayerController : MonoBehaviour {
 	
 		look.transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 		look.transform.position = look.transform.position + (cam.transform.right * Input.GetAxis ("Horizontal")) + (cam.transform.forward * Input.GetAxis ("Vertical"));
+		look.transform.position = new Vector3 (look.transform.position.x, transform.position.y, look.transform.position.z);
 
 		if (look.transform.position != this.transform.position) {
 			transform.LookAt (look.transform.position);
@@ -101,7 +137,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Jump(){
 	
-		if (Input.GetButtonDown ("Jump")) {
+
 
 			float force = Mathf.Sqrt(2*Physics.gravity.y*-1*jumpHeight);
 			print("Jumpforce:  "+force);
@@ -109,7 +145,6 @@ public class PlayerController : MonoBehaviour {
 			if (GetComponent<Player> ().grounded) {
 				GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
 			}
-		}
 	
 	}
 
