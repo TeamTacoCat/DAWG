@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Arrow : MonoBehaviour {
 
@@ -11,16 +12,16 @@ public class Arrow : MonoBehaviour {
 		switch (player.GetComponent<Player> ().teamNum) {
 
 		case 1:
-			GetComponent<UnityEngine.UI.Image> ().color = Color.red;
+			GetComponent<Image> ().color = Color.red;
 			break;
 		case 2:
-			GetComponent<UnityEngine.UI.Image> ().color = Color.blue;
+			GetComponent<Image> ().color = Color.blue;
 			break;
 		case 3:
-			GetComponent<UnityEngine.UI.Image> ().color = Color.green;
+			GetComponent<Image> ().color = Color.green;
 			break;
 		case 4:
-			GetComponent<UnityEngine.UI.Image> ().color = Color.yellow;
+			GetComponent<Image> ().color = Color.yellow;
 			break;
 
 		default:

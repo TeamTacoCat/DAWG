@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SigilSpawn : MonoBehaviour {
 
@@ -36,7 +37,7 @@ public class SigilSpawn : MonoBehaviour {
 	void Update () {
 
 		if (starter) {
-			if (gridsDone.Count <= 9) {
+			if (gridsDone.Count <= 8) {
 				if (curSigil == null) {
 		
 					ChooseGrid ();
@@ -73,6 +74,8 @@ public class SigilSpawn : MonoBehaviour {
 		curSigil.GetComponent<Sigil> ().grid = gridNumber;
 		curSigil.GetComponent<Sigil> ().spawner = this.gameObject;
 
+		grids [gridNumber-1].GetComponent<GridDetection> ().activeSigil = curSigil;
+
 		searchObj = (GameObject)Instantiate (searchImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
 		searchObj.transform.SetParent (minimapCanvas.transform, false);
 		searchObj.GetComponent<RectTransform> ().localPosition = minimapCanvas.GetComponent<MinimapPos> ().GetGridPos(gridNumber);
@@ -92,16 +95,16 @@ public class SigilSpawn : MonoBehaviour {
 		switch (team) {
 
 		case 1:
-			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (1, 0, 0, .2f);
+			claimedObj.GetComponent<Image> ().color = new Color (1, 0, 0, .2f);
 			break;
 		case 2:
-			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (0, 0, 1, .2f);
+			claimedObj.GetComponent<Image> ().color = new Color (0, 0, 1, .2f);
 			break;
 		case 3:
-			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (0, 1, 0, .2f);
+			claimedObj.GetComponent<Image> ().color = new Color (0, 1, 0, .2f);
 			break;
 		case 4:
-			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (1, 1, 0, .2f);
+			claimedObj.GetComponent<Image> ().color = new Color (1, 1, 0, .2f);
 			break;
 		default:
 			break;
