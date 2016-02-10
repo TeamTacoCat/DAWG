@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Sigil : MonoBehaviour {
 
-
+	public int grid;
+	public GameObject spawner;
 
 	// Use this for initialization
 	void Start () {
@@ -35,5 +36,11 @@ public class Sigil : MonoBehaviour {
 		
 		}
 	
+	}
+
+	public void Claim(int teamNum){
+
+		spawner.GetComponent<SigilSpawn> ().ClaimMap (grid, teamNum);
+
 	}
 }
