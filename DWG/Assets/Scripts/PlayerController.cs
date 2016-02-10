@@ -21,8 +21,10 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField]private int fuelRegen = 1;
 	[SerializeField]private float fuelRegenTime = .05f;
-	[SerializeField]private int jumpCost = 30;
-	[SerializeField]private int dashCost = 30;
+	[SerializeField]private int jumpCost = 20;
+	[SerializeField]private int dashCost = 20;
+
+	private GameObject dashboox;
 
 	private int CurrentFuel{
 		get { return currentFuel; }
@@ -47,6 +49,20 @@ public class PlayerController : MonoBehaviour {
 		maxXValue = fuelTransform.position.x;
 		minXValue = fuelTransform.position.x - fuelTransform.rect.width;
 		currentFuel = maxFuel;
+
+		dashCost = 20;
+		jumpCost = 20;
+
+		foreach (Transform t in GetComponentsInChildren<Transform>()) {
+
+			if (t.gameObject.name == "DashBox") {
+
+				dashboox = t.gameObject;
+				dashboox.SetActive (false);
+
+			}
+
+		}
 	
 		StartCoroutine ("FuelRegen");
 	}
@@ -239,7 +255,7 @@ public class PlayerController : MonoBehaviour {
 	
 		if (currentFuel > dashCost) {
 		
-			//currentFuel -= dashCost;
+			currentFuel -= dashCost;
 
 			float x = Input.GetAxis ("Horizontal"+playerNum.ToString()) * accel;
 			float z = Input.GetAxis ("Vertical"+playerNum.ToString()) * accel;
@@ -256,6 +272,9 @@ public class PlayerController : MonoBehaviour {
 			GetComponent<Rigidbody> ().velocity = Vector3.zero;
 			GetComponent<Rigidbody> ().AddForce (zDir * z * 3f, ForceMode.VelocityChange);
 			GetComponent<Rigidbody> ().AddForce (cam.transform.right * x * 3f, ForceMode.VelocityChange);
+
+			dashboox.SetActive (true);
+
 			StartCoroutine ("DashEnd");
 		
 		}
@@ -264,9 +283,9 @@ public class PlayerController : MonoBehaviour {
 
 	IEnumerator DashEnd(){
 	
-		yield return new WaitForSeconds (.5f);
-		GetComponent<Rigidbody> ().velocity = GetComponent<Rigidbody>().velocity/3f;
-
+		yield return new WaitForSeconds (.2f);
+		GetComponent<Rigidbody> ().velocity = GetComponent<Rigidbody>().velocity/10f;
+		dashboox.SetActive (false);
 
 	}
 
