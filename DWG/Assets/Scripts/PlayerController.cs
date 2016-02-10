@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,10 +13,37 @@ public class PlayerController : MonoBehaviour {
 
 	public int playerNum;
 
+	/*
+	public RectTransform fuelTransform;
+	private float cachedY;
+	private float minXValue;
+	private float maxXValue;
+	private int currentFuel;
+
+	private int CurrentFuel{
+		get { return currentFuel; }
+		set { 
+			currentFuel = value;
+			HandleFuel ();
+		}
+	}
+
+	public int maxFuel;
+	public Text fuelText;
+	public Image visualFuel;
+	*/
+
 	// Use this for initialization
 	void Start () {
 
 		look = GameObject.Find ("Look" + playerNum.ToString ());
+
+		/*
+		cachedY = fuelTransform.position.y;
+		maxXValue = fuelTransform.position.x;
+		minXValue = fuelTransform.position.x - fuelTransform.rect.width;
+		currentFuel = maxFuel;
+		*/
 	
 	}
 	
@@ -164,5 +192,27 @@ public class PlayerController : MonoBehaviour {
 			}
 	
 	}
+
+	/*
+	public void SetMaxSpeed(float mSpeed){
+		maxSpeed = mSpeed;
+	}
+
+	public void resetMaxSpeed(float mSpeed){
+		maxSpeed = 30;
+	}
+
+	private void HandleFuel(){
+		fuelText.text = "Fuel: " + currentFuel;
+
+		float currentXValue = MapValues (currentFuel, 0, maxFuel, minXValue, maxXValue);
+
+		fuelTransform.position = new Vector3 (currentXValue, cachedY);
+	}
+
+	private float MapValues(float x, float inMin, float inMax, float outMin, float outMax){
+		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMax;
+	}
+	*/
 
 }

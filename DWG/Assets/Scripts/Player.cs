@@ -6,10 +6,12 @@ public class Player : MonoBehaviour {
 	public bool grounded = true;
 
 	public GameObject sigil;
+	public GameObject searcher;
 	public float sigilProg = 0;
 
 	//This is the current power up that the player has available.
-	private int powerUp;
+	private int powerUp = -1;
+	//private float mSpeed = 60;
 
 	public bool fill=false;
 
@@ -30,9 +32,31 @@ public class Player : MonoBehaviour {
 		
 		}
 
+		/*
+		if (powerUp != -1) {
+			if(Input.GetKey(KeyCode.Z)){
+				switch (powerUp) {
+				case 0:
+					this.GetComponent<PlayerController> ().SetMaxSpeed (mSpeed);
+					StartCoroutine ("timer", 10.0f);
+					break;
+				default:
+					break;
+				}
+				powerUp = -1;
+				}
+			}
+			*/
 
 	
 	}
+
+	/*
+	IEnumerator timer(float T){
+		yield return new WaitForSeconds (T);
+		GetComponent<PlayerController> ().SetMaxSpeed (30);
+	}
+	*/
 
 	public void SetPowerUp(int pUp){
 		powerUp = pUp;
