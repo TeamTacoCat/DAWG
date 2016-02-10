@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 
 	//This is the current power up that the player has available.
 	private int powerUp = -1;
-	//private float mSpeed = 60;
+	private float mSpeed = 60;
 
 	public bool fill=false;
 
@@ -31,8 +31,7 @@ public class Player : MonoBehaviour {
 			sigilProg = 0;
 		
 		}
-
-		/*
+			
 		if (powerUp != -1) {
 			if(Input.GetKey(KeyCode.Z)){
 				switch (powerUp) {
@@ -46,17 +45,14 @@ public class Player : MonoBehaviour {
 				powerUp = -1;
 				}
 			}
-			*/
 
 	
 	}
-
-	/*
+		
 	IEnumerator timer(float T){
 		yield return new WaitForSeconds (T);
 		GetComponent<PlayerController> ().SetMaxSpeed (30);
 	}
-	*/
 
 	public void SetPowerUp(int pUp){
 		powerUp = pUp;
