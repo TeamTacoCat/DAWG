@@ -17,10 +17,17 @@ public class SigilSpawn : MonoBehaviour {
 
 	private List<int> gridsDone = new List<int>();
 
+	public bool starter = false;
 
 	// Use this for initialization
 	void Start () {
 
+		Invoke ("TEMP", 3f);
+	
+	}
+
+	void TEMP(){
+	
 		SpawnSigil (5);
 	
 	}
@@ -28,11 +35,13 @@ public class SigilSpawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (gridsDone.Count <= 9) {
-			if (curSigil == null) {
+		if (starter) {
+			if (gridsDone.Count <= 9) {
+				if (curSigil == null) {
 		
-				ChooseGrid ();
+					ChooseGrid ();
 		
+				}
 			}
 		}
 	
@@ -44,7 +53,7 @@ public class SigilSpawn : MonoBehaviour {
 
 			do{
 
-			i = Random.Range (1, 10);
+			i = (int)Random.Range (1, 10);
 
 			}while(gridsDone.Contains (i));
 
@@ -54,14 +63,19 @@ public class SigilSpawn : MonoBehaviour {
 
 	void SpawnSigil(int gridNumber){
 
-		Transform[] gridArray = grids [gridNumber].GetComponentsInChildren<Transform> ();
+		starter = true;
 
-		curSigil = (GameObject)Instantiate (sigil, gridArray[Random.Range (0, gridArray.Length)].position, Quaternion.Euler (0, 0, 0));
+		Transform[] gridArray = grids [gridNumber-1].GetComponentsInChildren<Transform> ();
+
+		print ("Grid Number" + gridNumber);
+
+		curSigil = (GameObject)Instantiate (sigil, gridArray[(int)Random.Range (0, gridArray.Length)].position, Quaternion.Euler (0, 0, 0));
 		curSigil.GetComponent<Sigil> ().grid = gridNumber;
+		curSigil.GetComponent<Sigil> ().spawner = this.gameObject;
 
 		searchObj = (GameObject)Instantiate (searchImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
 		searchObj.transform.SetParent (minimapCanvas.transform, false);
-		//searchObj.GetComponent<RectTransform>().position
+		searchObj.GetComponent<RectTransform> ().localPosition = minimapCanvas.GetComponent<MinimapPos> ().GetGridPos(gridNumber);
 
 		print ("Sigil spawned at:" + curSigil.transform.position);
 
@@ -73,9 +87,30 @@ public class SigilSpawn : MonoBehaviour {
 	
 		claimedObj = (GameObject)Instantiate (claimedImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
 		claimedObj.transform.SetParent (minimapCanvas.transform, false);
+		claimedObj.GetComponent<RectTransform> ().localPosition = minimapCanvas.GetComponent<MinimapPos> ().GetGridPos(gridClaimed);
+
+		switch (team) {
+
+		case 1:
+			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (1, 0, 0, .2f);
+			break;
+		case 2:
+			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (0, 0, 1, .2f);
+			break;
+		case 3:
+			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (0, 1, 0, .2f);
+			break;
+		case 4:
+			claimedObj.GetComponent<UnityEngine.UI.Image> ().color = new Color (1, 1, 0, .2f);
+			break;
+		default:
+			break;
+
+		}
 
 		Destroy (curSigil.gameObject);
 		curSigil = null;
+		Destroy (searchObj);
 	
 	}
 

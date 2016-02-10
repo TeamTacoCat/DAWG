@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
 
 	public bool fill=false;
 
+	public int teamNum;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -64,7 +66,8 @@ public class Player : MonoBehaviour {
 
 		print ("Progress bar filled");
 
-
+		sigil.GetComponent<Sigil> ().Claim (teamNum);
+		GameManager.AddPoints (teamNum);
 
 	}
 
