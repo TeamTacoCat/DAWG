@@ -42,5 +42,7 @@ public class Sigil : MonoBehaviour {
 
 		spawner.GetComponent<SigilSpawn> ().ClaimMap (grid, teamNum);
 
+		print ("Claimed by team" + teamNum);
+
 	}
 }

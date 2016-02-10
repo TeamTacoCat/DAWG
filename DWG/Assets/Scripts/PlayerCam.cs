@@ -32,8 +32,8 @@ public class PlayerCam : MonoBehaviour {
 	void LateUpdate () {
 		
 		if (target) {
-			x += Input.GetAxis("HorizCam") * xSpeed * 0.02f;
-			y -= Input.GetAxis("VertCam") * ySpeed * 0.02f;
+			x += Input.GetAxis("HorizCam"+target.gameObject.GetComponent<PlayerController>().playerNum.ToString()) * xSpeed * 0.02f;
+			y -= Input.GetAxis("VertCam"+target.gameObject.GetComponent<PlayerController>().playerNum.ToString()) * ySpeed * 0.02f;
 
 			y = ClampAngle(y, yMinLimit, yMaxLimit);
 

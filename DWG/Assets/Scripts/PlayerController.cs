@@ -5,15 +5,17 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField]private float maxSpeed;
 	[SerializeField]private float accel;
-	[SerializeField]private float rotAccel;
 	[SerializeField]private float jumpHeight;
-	[SerializeField]private Transform pivot;
 
 	public GameObject cam;
 	public GameObject look;
 
+	public int playerNum;
+
 	// Use this for initialization
 	void Start () {
+
+		look = GameObject.Find ("Look" + playerNum.ToString ());
 	
 	}
 	
@@ -22,14 +24,14 @@ public class PlayerController : MonoBehaviour {
 
 		HorizontalMovement ();
 		LookDirection ();
-		if (Input.GetButtonDown ("Jump")) {
+		if (Input.GetButtonDown ("Jump"+playerNum.ToString())) {
 			Jump ();
 		}
-		if (Input.GetButtonDown ("Interact")) {
+		if (Input.GetButtonDown ("Interact"+playerNum.ToString())) {
 		
 			GetComponent<Player> ().Interact ();
 		
-		} else if (Input.GetButtonUp ("Interact") && GetComponent<Player> ().sigil != null) {
+		} else if (Input.GetButtonUp ("Interact"+playerNum.ToString()) && GetComponent<Player> ().sigil != null) {
 		
 			GetComponent<Player>().StopCoroutine ("FillProgBar");
 		
@@ -119,15 +121,14 @@ public class PlayerController : MonoBehaviour {
 
 	void HorizontalMovement(){
 	
-		float x = Input.GetAxis ("Horizontal") * accel;
-		float z = Input.GetAxis ("Vertical") * accel;
+		float x = Input.GetAxis ("Horizontal"+playerNum.ToString()) * accel;
+		float z = Input.GetAxis ("Vertical"+playerNum.ToString()) * accel;
 
 		Vector3 zDir = (transform.position - cam.transform.position).normalized;
 		zDir.y = 0;
 
 		zDir = Vector3.Scale(zDir, new Vector3(1000,1000,1000));
 		zDir = Vector3.ClampMagnitude (zDir, 1);
-		print (zDir.magnitude);
 
 		Vector3 horizVel = GetComponent<Rigidbody> ().velocity;
 		horizVel.y = 0;
@@ -136,15 +137,13 @@ public class PlayerController : MonoBehaviour {
 			GetComponent<Rigidbody> ().AddForce (zDir * z, ForceMode.Force);
 			GetComponent<Rigidbody> ().AddForce (cam.transform.right * x, ForceMode.Force);
 		}
-
-		//print (horizVel.magnitude);
 	
 	}
 
 	void LookDirection(){
 	
 		look.transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-		look.transform.position = look.transform.position + (cam.transform.right * Input.GetAxis ("Horizontal")) + (cam.transform.forward * Input.GetAxis ("Vertical"));
+		look.transform.position = look.transform.position + (cam.transform.right * Input.GetAxis ("Horizontal"+playerNum.ToString())) + (cam.transform.forward * Input.GetAxis ("Vertical"+playerNum.ToString()));
 		look.transform.position = new Vector3 (look.transform.position.x, transform.position.y, look.transform.position.z);
 
 		if (look.transform.position != this.transform.position) {
@@ -158,7 +157,6 @@ public class PlayerController : MonoBehaviour {
 
 
 			float force = Mathf.Sqrt(2*Physics.gravity.y*-1*jumpHeight);
-			print("Jumpforce:  "+force);
 			//GetComponent<Rigidbody>().AddForce(Vector3.up*force);
 			if (GetComponent<Player> ().grounded) {
 				//GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
