@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,9 +13,31 @@ public class PlayerController : MonoBehaviour {
 	public GameObject cam;
 	public GameObject look;
 
+	//variables for fuel gauge.
+	public RectTransform fuelTransform;
+	private float cachedY;
+	private float minXValue;
+	private float maxXValue;
+	private int currentFuel;
+
+	private int CurrentFuel{
+		get { return currentFuel; }
+		set { 
+			currentFuel = value;
+			HandleFuel ();
+		}
+	}
+
+	public int maxFuel;
+	public Text fuelText;
+	public Image visualFuel;
+
 	// Use this for initialization
 	void Start () {
-	
+		cachedY = fuelTransform.position.y;
+		maxXValue = fuelTransform.position.x;
+		minXValue = fuelTransform.position.x - fuelTransform.rect.width;
+		currentFuel = maxFuel;
 	}
 	
 	// Update is called once per frame
@@ -154,17 +177,39 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Jump(){
-	
 
+		float force = Mathf.Sqrt (2 * Physics.gravity.y * -1 * jumpHeight);
+		print ("Jumpforce:  " + force);
+		//GetComponent<Rigidbody>().AddForce(Vector3.up*force);
+		if (GetComponent<Player> ().grounded) {
+			//GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
+			GetComponent<Rigidbody> ().AddForce (0, force, 0, ForceMode.VelocityChange);
+		} 
 
-			float force = Mathf.Sqrt(2*Physics.gravity.y*-1*jumpHeight);
-			print("Jumpforce:  "+force);
-			//GetComponent<Rigidbody>().AddForce(Vector3.up*force);
-			if (GetComponent<Player> ().grounded) {
-				//GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
-			GetComponent<Rigidbody>().AddForce(0,force,0,ForceMode.VelocityChange);
-			}
-	
+		else if (currentFuel >= 10) {
+			CurrentFuel -= 10;
+			GetComponent<Rigidbody> ().AddForce (0, force, 0, ForceMode.VelocityChange);
+		}
+	}
+
+	public void SetMaxSpeed(float mSpeed){
+		maxSpeed = mSpeed;
+	}
+
+	public void resetMaxSpeed(float mSpeed){
+		maxSpeed = 30;
+	}
+
+	private void HandleFuel(){
+		fuelText.text = "Fuel: " + currentFuel;
+
+		float currentXValue = MapValues (currentFuel, 0, maxFuel, minXValue, maxXValue);
+
+		fuelTransform.position = new Vector3 (currentXValue, cachedY);
+	}
+
+	private float MapValues(float x, float inMin, float inMax, float outMin, float outMax){
+		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMax;
 	}
 
 }
