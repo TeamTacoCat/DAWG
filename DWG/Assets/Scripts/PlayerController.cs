@@ -13,12 +13,16 @@ public class PlayerController : MonoBehaviour {
 
 	public int playerNum;
 
-	/*
 	public RectTransform fuelTransform;
 	private float cachedY;
 	private float minXValue;
 	private float maxXValue;
 	private int currentFuel;
+
+	[SerializeField]private int fuelRegen = 1;
+	[SerializeField]private float fuelRegenTime = .05f;
+	[SerializeField]private int jumpCost = 30;
+	[SerializeField]private int dashCost = 30;
 
 	private int CurrentFuel{
 		get { return currentFuel; }
@@ -28,23 +32,23 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+
+
 	public int maxFuel;
 	public Text fuelText;
 	public Image visualFuel;
-	*/
 
 	// Use this for initialization
 	void Start () {
 
 		look = GameObject.Find ("Look" + playerNum.ToString ());
 
-		/*
 		cachedY = fuelTransform.position.y;
 		maxXValue = fuelTransform.position.x;
 		minXValue = fuelTransform.position.x - fuelTransform.rect.width;
 		currentFuel = maxFuel;
-		*/
 	
+		StartCoroutine ("FuelRegen");
 	}
 	
 	// Update is called once per frame
@@ -62,6 +66,12 @@ public class PlayerController : MonoBehaviour {
 		} else if (Input.GetButtonUp ("Interact"+playerNum.ToString()) && GetComponent<Player> ().sigil != null) {
 		
 			GetComponent<Player>().StopCoroutine ("FillProgBar");
+		
+		}
+
+		if (Input.GetButtonDown ("Dash" + playerNum.ToString ())) {
+		
+			Dash ();
 		
 		}
 
@@ -181,19 +191,20 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Jump(){
-	
 
-
-			float force = Mathf.Sqrt(2*Physics.gravity.y*-1*jumpHeight);
-			//GetComponent<Rigidbody>().AddForce(Vector3.up*force);
-			if (GetComponent<Player> ().grounded) {
-				//GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
+		float force = Mathf.Sqrt(2*Physics.gravity.y*-1*jumpHeight);
+		//GetComponent<Rigidbody>().AddForce(Vector3.up*force);
+		if (GetComponent<Player> ().grounded) {
+			//GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
 			GetComponent<Rigidbody>().AddForce(0,force,0,ForceMode.VelocityChange);
-			}
-	
+		}
+
+		else if (currentFuel >= jumpCost) {
+			CurrentFuel -= jumpCost;
+			GetComponent<Rigidbody> ().AddForce (0, force, 0, ForceMode.VelocityChange);
+		}
 	}
 
-	/*
 	public void SetMaxSpeed(float mSpeed){
 		maxSpeed = mSpeed;
 	}
@@ -213,6 +224,50 @@ public class PlayerController : MonoBehaviour {
 	private float MapValues(float x, float inMin, float inMax, float outMin, float outMax){
 		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMax;
 	}
-	*/
+
+	IEnumerator FuelRegen(){
+		bool loop = true;
+		while (loop) {
+			if (CurrentFuel<maxFuel){
+				CurrentFuel += fuelRegen;
+		}
+			yield return new WaitForSeconds (fuelRegenTime);
+		}
+	}
+
+	void Dash(){
+	
+		if (currentFuel > dashCost) {
+		
+			//currentFuel -= dashCost;
+
+			float x = Input.GetAxis ("Horizontal"+playerNum.ToString()) * accel;
+			float z = Input.GetAxis ("Vertical"+playerNum.ToString()) * accel;
+
+			Vector3 zDir = (transform.position - cam.transform.position).normalized;
+			zDir.y = 0;
+
+			zDir = Vector3.Scale(zDir, new Vector3(1000,1000,1000));
+			zDir = Vector3.ClampMagnitude (zDir, 1);
+
+			Vector3 horizVel = GetComponent<Rigidbody> ().velocity;
+			horizVel.y = 0;
+
+			GetComponent<Rigidbody> ().velocity = Vector3.zero;
+			GetComponent<Rigidbody> ().AddForce (zDir * z * 3f, ForceMode.VelocityChange);
+			GetComponent<Rigidbody> ().AddForce (cam.transform.right * x * 3f, ForceMode.VelocityChange);
+			StartCoroutine ("DashEnd");
+		
+		}
+	
+	}
+
+	IEnumerator DashEnd(){
+	
+		yield return new WaitForSeconds (.5f);
+		GetComponent<Rigidbody> ().velocity = GetComponent<Rigidbody>().velocity/3f;
+
+
+	}
 
 }
