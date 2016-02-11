@@ -85,7 +85,6 @@ C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEditor.Networ
 C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEditor.OSXStandalone.Extensions.dll
 C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEditor.TreeEditor.dll
 C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEditor.UI.dll
-C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEditor.WebGL.Extensions.dll
 C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEditor.WindowsStandalone.Extensions.dll
 C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEngine.dll
 C:\Users\Brian\Documents\DAWG\GitProj\DAWG\DWG\Temp\bin\Debug\UnityEngine.Networking.dll
