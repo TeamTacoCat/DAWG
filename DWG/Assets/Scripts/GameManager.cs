@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	private static GameManager GMInstance;
 	private static int[] points = new int[4];
+	public static int teams = 4;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +37,13 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-	public void LoadScene(string sceneName){
+	public void LoadWrapper(string sceneName){
+	
+		LoadScene (sceneName);
+	
+	}
+
+	public static void LoadScene(string sceneName){
 	
 		SceneManager.LoadScene (sceneName);
 		if (sceneName == "LevelLayout") {
@@ -69,6 +76,12 @@ public class GameManager : MonoBehaviour {
 
 		}
 	
+	}
+
+	public static int[] GetPoints(){
+
+		return points;
+
 	}
 
 }
