@@ -31,21 +31,6 @@ public class Player : MonoBehaviour {
 			sigilProg = 0;
 		
 		}
-			
-		if (powerUp != -1) {
-			if(Input.GetKey(KeyCode.Z)){
-				switch (powerUp) {
-				case 0:
-					this.GetComponent<PlayerController> ().SetMaxSpeed (mSpeed);
-					StartCoroutine ("timer", 10.0f);
-					break;
-				default:
-					break;
-				}
-				powerUp = -1;
-				}
-			}
-
 	
 	}
 		
@@ -61,13 +46,30 @@ public class Player : MonoBehaviour {
 	public void Interact(){
 
 		if (sigil != null) {
+			if (powerUp == 2)
+				StartCoroutine ("SpellSlinger");
+			else
+				StartCoroutine ("FillProgBar");
 		
-			StartCoroutine ("FillProgBar");
+		} 
+
+		else {
 		
-		} else {
-		
-			print ("not in sigil range");
-		
+			switch (powerUp) {
+			case 0:
+				this.GetComponent<PlayerController> ().SetMaxSpeed (mSpeed);
+				StartCoroutine ("timer", 10.0f);
+				break;
+			case 1:
+				this.GetComponent<PlayerController> ().FuelRestore ();
+				break;
+			case 3:
+				this.GetComponent<PlayerController> ().Discombobulate();
+				break;
+			default:
+				break;
+			}
+			powerUp = -1;
 		}
 
 	}
@@ -91,4 +93,20 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public IEnumerator SpellSlinger(){
+
+		print ("Fill Progress double speed");
+
+		while (sigilProg < 100) {
+			
+			sigilProg += 2;
+			yield return new WaitForFixedUpdate ();
+		
+		}
+
+		sigil.GetComponent<Sigil> ().Claim (teamNum);
+		GameManager.AddPoints (teamNum);
+
+		powerUp = -1;
+	}
 }
