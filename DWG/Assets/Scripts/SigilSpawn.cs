@@ -12,6 +12,7 @@ public class SigilSpawn : MonoBehaviour {
 	[SerializeField]private GameObject sigil;
 	[SerializeField]private GameObject searchImage;
 	[SerializeField]private GameObject claimedImage;
+	[SerializeField]private GameObject winImage;
 	private GameObject curSigil;
 	private GameObject searchObj;
 	private GameObject claimedObj;
@@ -38,14 +39,84 @@ public class SigilSpawn : MonoBehaviour {
 
 		if (starter) {
 			if (gridsDone.Count <= 8) {
+
+				CheckMajority ();
+
 				if (curSigil == null) {
 		
 					ChooseGrid ();
 		
 				}
-			}
+			} 
 		}
 	
+	}
+
+	void CheckMajority(){
+
+		int minToWin = Mathf.CeilToInt (9f / (float)GameManager.teams);
+		int[] pointCopy = GameManager.GetPoints();
+		bool over = true;
+
+		for(int i = 0;i< pointCopy.Length;i++) {
+		
+			if (pointCopy[i] >= minToWin) {
+
+				print ("team " + i + "above minimum amount");
+			
+				for (int j = 0; j < pointCopy.Length; j++) {
+				
+					if (j != i && pointCopy[j]+(9-(gridsDone.Count-1)) > pointCopy[i]) {
+					
+						print ("team still capable of winning, "+(9-(gridsDone.Count-1))+"grids left");
+						over = false;
+					
+					}
+				
+				}
+
+				if(over){
+
+					StartCoroutine("Finish", i+1);
+
+				}
+			
+			}
+		
+		}
+
+	}
+
+
+	IEnumerator Finish(int team){
+
+		string teamName = " ";
+
+		switch (team) {
+
+		case 1:
+			teamName = "Red";
+			break;
+		case 2:
+			teamName = "Blue";
+			break;
+		case 3:
+			teamName = "Green";
+			break;
+		case 4:
+			teamName = "Yellow";
+			break;
+		default:
+			break;
+
+		}
+
+		GameObject winObj = (GameObject)Instantiate (winImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
+		winObj.transform.SetParent (minimapCanvas.transform, false);
+		winObj.GetComponentInChildren<Text> ().text = teamName + " Team Wins!";
+		yield return new WaitForSeconds (3f);
+		GameManager.LoadScene ("MainMenu");
+
 	}
 
 	void ChooseGrid(){
