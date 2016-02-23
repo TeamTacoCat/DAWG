@@ -297,35 +297,34 @@ public class PlayerController : MonoBehaviour {
 		switch (this.GetComponent<Player> ().teamNum){
 
 		case 1:
-			GameObject.Find ("MinimapArrow2").SetActive (false);
-			GameObject.Find ("MinimapArrow3").SetActive (false);
-			GameObject.Find ("MinimapArrow4").SetActive (false);
+			GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = false;
 
 			StartCoroutine ("dTimer");
 
-			GameObject.Find ("MinimapArrow2").SetActive (true);
 			break;
 
 		case 2:
-			GameObject.Find ("MinimapArrow1").SetActive (false);
-			GameObject.Find ("MinimapArrow3").SetActive (false);
-			GameObject.Find ("MinimapArrow4").SetActive (false);
+			GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = false;
 
 			StartCoroutine ("dTimer");
 			break;
 
 		case 3:
-			GameObject.Find ("MinimapArrow1").SetActive (false);
-			GameObject.Find ("MinimapArrow2").SetActive (false);
-			GameObject.Find ("MinimapArrow4").SetActive (false);
+			GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = false;
 
 			StartCoroutine ("dTimer");
 			break;
 
 		case 4:
-			GameObject.Find ("MinimapArrow1").SetActive (false);
-			GameObject.Find ("MinimapArrow2").SetActive (false);
-			GameObject.Find ("MinimapArrow3").SetActive (false);
+			GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = false;
 
 			StartCoroutine ("dTimer");
 			break;
@@ -338,5 +337,9 @@ public class PlayerController : MonoBehaviour {
 
 	IEnumerator dTimer(){
 		yield return new WaitForSeconds (10.0f);
+		GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = true;
+		GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = true;
+		GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = true;
+		GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = true;
 	}
 }
