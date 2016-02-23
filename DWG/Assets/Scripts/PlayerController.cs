@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-
-
 	public int maxFuel;
 	public Text fuelText;
 	public Image visualFuel;
@@ -78,6 +76,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown ("Interact"+playerNum.ToString())) {
 		
 			GetComponent<Player> ().Interact ();
+
 		
 		} else if (Input.GetButtonUp ("Interact"+playerNum.ToString()) && GetComponent<Player> ().sigil != null) {
 		
@@ -164,13 +163,8 @@ public class PlayerController : MonoBehaviour {
 			//camBoom.transform.Rotate (0, 10, 0);
 			//cam.transform.RotateAround (camBoom.transform.position, Vector3.up, 5);
 			cam.transform.RotateAround (this.transform.position, transform.up, 5);
-
-
 		}
 		*/
-	
-
-
 	}
 
 	void HorizontalMovement(){
@@ -221,6 +215,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	//Current speed power up here
 	public void SetMaxSpeed(float mSpeed){
 		maxSpeed = mSpeed;
 	}
@@ -229,6 +224,7 @@ public class PlayerController : MonoBehaviour {
 		maxSpeed = 30;
 	}
 
+	//This handles the fuel bar on the HUD. 
 	private void HandleFuel(){
 		fuelText.text = "Fuel: " + currentFuel;
 
@@ -241,6 +237,7 @@ public class PlayerController : MonoBehaviour {
 		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMax;
 	}
 
+	//With this, the fuel gauge always regenerates at the rate set by "fuelRegen" whenever it isn't full.
 	IEnumerator FuelRegen(){
 		bool loop = true;
 		while (loop) {
@@ -289,4 +286,60 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	//This is the Fuel restore power up as described in the GDD. With this, fuel is maxed out instantly.
+	public void FuelRestore(){
+		if (CurrentFuel < maxFuel)
+			CurrentFuel = maxFuel;
+	}
+
+
+	public void Discombobulate(){
+		switch (this.GetComponent<Player> ().teamNum){
+
+		case 1:
+			GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = false;
+
+			StartCoroutine ("dTimer");
+
+			break;
+
+		case 2:
+			GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = false;
+
+			StartCoroutine ("dTimer");
+			break;
+
+		case 3:
+			GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = false;
+
+			StartCoroutine ("dTimer");
+			break;
+
+		case 4:
+			GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = false;
+			GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = false;
+
+			StartCoroutine ("dTimer");
+			break;
+
+		default:
+			break;
+
+		}
+	}
+
+	IEnumerator dTimer(){
+		yield return new WaitForSeconds (10.0f);
+		GameObject.Find ("MinimapArrow1").GetComponent<Image> ().enabled = true;
+		GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = true;
+		GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = true;
+		GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = true;
+	}
 }
