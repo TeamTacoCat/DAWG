@@ -14,15 +14,20 @@ public class UIHandler : MonoBehaviour {
 	[SerializeField]private GameObject[] menus;
 	[SerializeField]private GameObject[] charSelection;
 	private GameObject activeMenu;
+	private Match match = new Match();
+	private int readyPlayers;
+	[SerializeField]private GameObject startButton;
 
 	// Use this for initialization
 	void Start () {
 		
-		Match match = new Match ();
 		match.PlayerType = new int[4];
 		for(int i = 0;i<match.PlayerType.Length;i++){
 			match.PlayerType[i] = -1;
 		}
+		match.NumPlayers = 0;
+		readyPlayers = 0;
+		startButton.SetActive (false);
 
 	}
 
@@ -53,6 +58,9 @@ public class UIHandler : MonoBehaviour {
 		case "MainMenu":
 			menus [0].SetActive (true);
 			activeMenu = menus [0];
+			match.NumPlayers = 0;
+			readyPlayers = 0;
+			startButton.SetActive (false);
 			break;
 		case "MultMenu":
 			menus [1].SetActive (true);
@@ -76,12 +84,25 @@ public class UIHandler : MonoBehaviour {
 		if (!charSelection [pNumber].GetComponent<CharSelect> ().PlayerActive) {
 		
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerActive = true;
-		
+			match.NumPlayers++;
+					
 		}else{
 
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerReady = true;
+			readyPlayers++;
+			if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
+			
+				startButton.SetActive(true);
+			
+			}
 
 		}
+	}
+
+	public void starter(){
+
+		//GameManager.StartSetup (match);
+		print(match.NumPlayers);
 
 	}
 

@@ -27,10 +27,7 @@ public class CharSelect : MonoBehaviour {
 		if (PlayerReady) {
 		
 			GetComponent<Image> ().color = Color.red;
-		
+
 		}
-	
 	}
-
-
 }

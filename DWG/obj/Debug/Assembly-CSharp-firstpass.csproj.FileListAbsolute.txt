@@ -81,3 +81,4 @@ C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\UnityEngine.UI.xml
 C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Users\Owner\Documents\DWG\DAWG\DWG\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\Owner\Documents\DWG\DAWG\DWG\obj\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Owner\Documents\DWG\DAWG\DWG\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
