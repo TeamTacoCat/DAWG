@@ -7,7 +7,7 @@ public class UIHandler : MonoBehaviour {
 		
 		public string MatchType{ get; set; }
 		public int NumPlayers{ get; set; }
-		public int[] PlayerType{ get; set; }
+		public int[] PlayerType{ get; set; } //0 = FemRed, 1= FemBlue, 2= FemYellow, 3= FemGreen
 
 	}
 
@@ -17,6 +17,9 @@ public class UIHandler : MonoBehaviour {
 	private Match match = new Match();
 	private int readyPlayers;
 	[SerializeField]private GameObject startButton;
+	[SerializeField]private GameObject[] charType;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -33,8 +36,9 @@ public class UIHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		
 	}
+
 	public void TestFunction(int testNumber){
 		if (testNumber == 10) {
 			print ("YAY!");
@@ -85,25 +89,31 @@ public class UIHandler : MonoBehaviour {
 		
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerActive = true;
 			match.NumPlayers++;
+			match.PlayerType [pNumber] = 0;
+			print ("Player 1 Type: " + match.PlayerType [0]);
+			print ("Player 2 Type: " + match.PlayerType [1]);
+			print ("Player 3 Type: " + match.PlayerType [2]);
+			print ("Player 4 Type: " + match.PlayerType [3]);
 					
 		}else{
 
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerReady = true;
 			readyPlayers++;
 			if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
-			
 				startButton.SetActive(true);
-			
 			}
-
 		}
 	}
 
 	public void starter(){
 
 		//GameManager.StartSetup (match);
-		print(match.NumPlayers);
+		//print(readyPlayers);
 
+	}
+
+	public void selectType(int arrowNum){
+		
 	}
 
 }
