@@ -66,6 +66,12 @@ public class Player : MonoBehaviour {
 			case 3:
 				this.GetComponent<PlayerController> ().Discombobulate();
 				break;
+			case 4:
+				this.GetComponent<PlayerController> ().Grounded();
+				break;
+			case 5:
+				this.GetComponent<PlayerController> ().SpeedCutter ();
+				break;
 			default:
 				break;
 			}
@@ -108,5 +114,9 @@ public class Player : MonoBehaviour {
 		GameManager.AddPoints (teamNum);
 
 		powerUp = -1;
+	}
+
+	public int GetTeamNumber(){
+		return teamNum;
 	}
 }

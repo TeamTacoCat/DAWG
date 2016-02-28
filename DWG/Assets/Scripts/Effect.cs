@@ -6,7 +6,7 @@ public class Effect : MonoBehaviour {
 
 	//Where the world power ups are saved
 	[SerializeField]private Sprite[] worldIcon;
-	[SerializeField]private int spriteChoice;
+	private int spriteChoice;
 	[SerializeField]private float timer;
 
 	// Use this for initialization
@@ -21,6 +21,7 @@ public class Effect : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll){
 		StartCoroutine ("pickedUp");
+		spriteChoice = Random.Range (0, 6);
 		coll.gameObject.GetComponent<Player> ().SetPowerUp (spriteChoice);
 	}
 

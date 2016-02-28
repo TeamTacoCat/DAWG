@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour {
 	public Text fuelText;
 	public Image visualFuel;
 
+	private int TeamNum;
+
 	// Use this for initialization
 	void Start () {
 
@@ -341,5 +343,84 @@ public class PlayerController : MonoBehaviour {
 		GameObject.Find ("MinimapArrow2").GetComponent<Image> ().enabled = true;
 		GameObject.Find ("MinimapArrow3").GetComponent<Image> ().enabled = true;
 		GameObject.Find ("MinimapArrow4").GetComponent<Image> ().enabled = true;
+	}
+
+	public void Grounded(){
+		switch (this.GetComponent<Player> ().teamNum) {
+		case 1:
+			GameObject.Find ("Player2").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player3").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player4").GetComponent<PlayerController> ().CurrentFuel = 0;
+			break;
+
+		case 2:
+			GameObject.Find ("Player1").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player3").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player4").GetComponent<PlayerController> ().CurrentFuel = 0;
+			break;
+		
+		case 3:
+			GameObject.Find ("Player1").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player2").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player4").GetComponent<PlayerController> ().CurrentFuel = 0;
+			break;
+
+		case 4:
+			GameObject.Find ("Player1").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player2").GetComponent<PlayerController> ().CurrentFuel = 0;
+			GameObject.Find ("Player3").GetComponent<PlayerController> ().CurrentFuel = 0;
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	public void SpeedCutter(){
+		switch (this.GetComponent<Player> ().teamNum) {
+		case 1:
+			GameObject.Find ("Player2").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player3").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player4").GetComponent<PlayerController> ().maxSpeed = 15;
+
+			StartCoroutine ("scTimer");
+			break;
+
+		case 2:
+			GameObject.Find ("Player1").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player3").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player4").GetComponent<PlayerController> ().maxSpeed = 15;
+
+			StartCoroutine ("scTimer");
+			break;
+
+		case 3:
+			GameObject.Find ("Player1").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player2").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player4").GetComponent<PlayerController> ().maxSpeed = 15;
+
+			StartCoroutine ("scTimer");
+			break;
+
+		case 4:
+			GameObject.Find ("Player1").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player2").GetComponent<PlayerController> ().maxSpeed = 15;
+			GameObject.Find ("Player3").GetComponent<PlayerController> ().maxSpeed = 15;
+
+			StartCoroutine ("scTimer");
+			break;
+
+		default:
+			break;
+
+		}
+	}
+
+	IEnumerator scTimer (){
+		yield return new WaitForSeconds (10.0f);
+		GameObject.Find ("Player1").GetComponent<PlayerController> ().maxSpeed = 30;
+		GameObject.Find ("Player2").GetComponent<PlayerController> ().maxSpeed = 30;
+		GameObject.Find ("Player3").GetComponent<PlayerController> ().maxSpeed = 30;
+		GameObject.Find ("Player4").GetComponent<PlayerController> ().maxSpeed = 30;
 	}
 }
