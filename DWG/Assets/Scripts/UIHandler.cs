@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+
 public class UIHandler : MonoBehaviour {
 
 
@@ -12,11 +14,13 @@ public class UIHandler : MonoBehaviour {
 	}
 
 	[SerializeField]private GameObject[] menus;
+	[SerializeField]private GameObject button;
 	[SerializeField]private GameObject[] charSelection;
-	private GameObject activeMenu;
+	[SerializeField]private GameObject activeMenu;
 	private Match match = new Match();
 	private int readyPlayers;
 	[SerializeField]private GameObject startButton;
+	[SerializeField]private EventSystem events;
 	[SerializeField]private GameObject[] charType;
 
 
@@ -32,11 +36,44 @@ public class UIHandler : MonoBehaviour {
 		readyPlayers = 0;
 		startButton.SetActive (false);
 
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+
+		switch(activeMenu.name){
+
+		case "MultMenu":
+			if (Input.GetButtonDown ("Jump1")) {
+
+				SelectChar (0);
+
+			}
+			if (Input.GetButtonDown ("Jump2")) {
+
+				SelectChar (1);
+
+			}
+			if (Input.GetButtonDown ("Jump3")) {
+
+				SelectChar (2);
+
+			}
+			if (Input.GetButtonDown ("Jump4")) {
+
+				SelectChar (3);
+
+			}
+			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
+				SwitchMenu ("MainMenu");
+			}
+
+			break;
+		default:
+			break;
 		
+		}
 	}
 
 	public void TestFunction(int testNumber){
@@ -65,18 +102,22 @@ public class UIHandler : MonoBehaviour {
 			match.NumPlayers = 0;
 			readyPlayers = 0;
 			startButton.SetActive (false);
+			events.SetSelectedGameObject (button, null);
 			break;
 		case "MultMenu":
 			menus [1].SetActive (true);
 			activeMenu = menus [1];
+			
 			break;
 		case "SingMenu":
 			menus [2].SetActive (true);
 			activeMenu = menus [2];
+			
 			break;
 		case "OptionsMenu":
 			menus [3].SetActive (true);
 			activeMenu = menus [3];
+			
 			break;
 		default:
 			break;

@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class CharSelect : MonoBehaviour {
 
-	public bool PlayerActive{ get; set; }
+	public bool PlayerActive{ 
+		get }
 	public bool PlayerReady{ get; set; } 
 
 	// Use this for initialization
@@ -21,12 +22,12 @@ public class CharSelect : MonoBehaviour {
 
 		if (PlayerActive) {
 
-			GetComponent<Image> ().color = Color.blue;
+			GetComponent<Image> ().color = Color.cyan;
 
 		}
 		if (PlayerReady) {
 		
-			GetComponent<Image> ().color = Color.red;
+			GetComponent<Image> ().color = Color.magenta;
 
 		}
 	}
