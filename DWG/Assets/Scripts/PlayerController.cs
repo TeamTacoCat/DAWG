@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 	void Start ()
 	{
 
-		look = GameObject.Find ("Look" + playerNum.ToString ());
+		//look = GameObject.Find ("Look" + playerNum.ToString ());
 
 		cachedY = fuelTransform.position.y;
 		maxXValue = fuelTransform.position.x;
@@ -213,7 +213,9 @@ public class PlayerController : MonoBehaviour
 	{
 
 		float force = Mathf.Sqrt (2 * Physics.gravity.y * -1 * jumpHeight);
-		//GetComponent<Rigidbody>().AddForce(Vector3.up*force);
+		if (GetComponent<Rigidbody> ().velocity.y < 0) {
+			GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, 0, GetComponent<Rigidbody> ().velocity.z);
+		}
 		if (GetComponent<Player> ().grounded) {
 			//GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
 			GetComponent<Rigidbody> ().AddForce (0, force, 0, ForceMode.VelocityChange);
@@ -254,8 +256,10 @@ public class PlayerController : MonoBehaviour
 	{
 		bool loop = true;
 		while (loop) {
+			if(GetComponent<Player>().grounded){
 			if (CurrentFuel < maxFuel) {
 				CurrentFuel += fuelRegen;
+			}
 			}
 			yield return new WaitForSeconds (fuelRegenTime);
 		}
@@ -266,7 +270,7 @@ public class PlayerController : MonoBehaviour
 	
 		if (currentFuel > dashCost) {
 		
-			currentFuel -= dashCost;
+			CurrentFuel -= dashCost;
 
 			float x = Input.GetAxis ("Horizontal" + playerNum.ToString ()) * accel;
 			float z = Input.GetAxis ("Vertical" + playerNum.ToString ()) * accel;

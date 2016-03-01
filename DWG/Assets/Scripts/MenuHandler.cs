@@ -61,8 +61,9 @@ public class MenuHandler : MonoBehaviour
 	public void ResumeGame ()
 	{
 		print ("ResumeGame running");
-			pauseMenu.SetActive (false);
-			Time.timeScale = 1;
+		paused = false;
+		pauseMenu.SetActive (false);
+		Time.timeScale = 1;
 	}
 
 	public void RestartGame()

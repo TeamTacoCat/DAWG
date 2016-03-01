@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class SigilSpawn : MonoBehaviour {
 
-	[SerializeField]private GameObject[] grids;
-	[SerializeField]private GameObject minimapCanvas;
+	private GameObject[] grids = new GameObject[9];
+	public GameObject minimapCanvas{ get; set; }
 	private int sigilsSpawned;
 
 	[SerializeField]private GameObject sigil;
@@ -27,11 +27,10 @@ public class SigilSpawn : MonoBehaviour {
 	void Start () {
 
 		Invoke ("TEMP", 3f);
-		grids = new GameObject[9];
 
 		for (int i = 0; i < grids.Length; i++) {
 		
-			grids [i] = GameObject.Find ((i + 1).ToString ());
+			grids [i] = GameObject.Find ("GridLayout" + "/" + (i+1).ToString ());
 		
 		}
 	

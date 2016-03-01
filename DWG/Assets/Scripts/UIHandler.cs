@@ -4,23 +4,6 @@ using UnityEngine.EventSystems;
 
 public class UIHandler : MonoBehaviour {
 
-<<<<<<< HEAD
-	public class Match{
-		public string MatchType{ get; set; }
-		public int NumPlayers{ get; set; }
-		public int[] PlayerType{ get; set; }
-	}
-		 
-	// Use this for initialization
-	void Start () {
-
-		Match match = new Match ();
-		match.PlayerType = new int[4];
-
-		for(int i = 0;i<match.PlayerType.Length;i++){
-			match.PlayerType[i] = -1;
-		}
-=======
 
 	public class Match{
 		
@@ -43,6 +26,8 @@ public class UIHandler : MonoBehaviour {
 	private bool p3B;
 	private bool p4B;
 
+	private GameObject gManager;
+
 
 
 
@@ -57,22 +42,14 @@ public class UIHandler : MonoBehaviour {
 		readyPlayers = 0;
 		startButton.SetActive (false);
 
->>>>>>> refs/remotes/origin/master
+		gManager = GameObject.Find ("GameManager");
+
 
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-<<<<<<< HEAD
-	}
-	public void TestFunction(int testNumber){
-
-		if (testNumber == 10) {
-		
-			print ("YAY!");
-		
-=======
 		switch(activeMenu.name){
 
 		case "MultMenu":
@@ -290,14 +267,11 @@ public class UIHandler : MonoBehaviour {
 	public void TestFunction(int testNumber){
 		if (testNumber == 10) {
 			print ("YAY!");
->>>>>>> refs/remotes/origin/master
 		} else {
 
 			print("FUCK OFF");
 
 		}
-<<<<<<< HEAD
-=======
 	}
 
 	public void SwitchMenu(string menu){
@@ -321,7 +295,7 @@ public class UIHandler : MonoBehaviour {
 		case "MultMenu":
 			menus [1].SetActive (true);
 			activeMenu = menus [1];
-			
+			match.MatchType = "LevelLayout";
 			break;
 		case "SingMenu":
 			menus [2].SetActive (true);
@@ -360,7 +334,7 @@ public class UIHandler : MonoBehaviour {
 
 	public void starter(){
 
-		//GameManager.StartSetup (match);
+		gManager.GetComponent<GameManager>().StartSetup (match);
 		print("Sending the match off!");
 
 	}
@@ -400,7 +374,6 @@ public class UIHandler : MonoBehaviour {
 			return false;
 		}
 	
->>>>>>> refs/remotes/origin/master
 	}
 
 }
