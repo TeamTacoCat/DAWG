@@ -137,7 +137,6 @@ C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
-C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\UnityEngine.xml
 C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\UnityEditor.Advertisements.xml
@@ -151,3 +150,4 @@ C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\UnityEditor.TreeEditor.xml
 C:\Users\Owner\Documents\DWG\DAWG\DWG\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Documents\DWG\DAWG\DWG\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\Owner\Documents\DWG\DAWG\DWG\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\Owner\Documents\DWG\DAWG\DWG\Temp\bin\Debug\Assembly-CSharp.pdb

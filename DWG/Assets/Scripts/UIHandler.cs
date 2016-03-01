@@ -21,7 +21,11 @@ public class UIHandler : MonoBehaviour {
 	private int readyPlayers;
 	[SerializeField]private GameObject startButton;
 	[SerializeField]private EventSystem events;
-	[SerializeField]private GameObject[] charType;
+	private bool p1B;
+	private bool p2B;
+	private bool p3B;
+	private bool p4B;
+
 
 
 
@@ -45,18 +49,19 @@ public class UIHandler : MonoBehaviour {
 		switch(activeMenu.name){
 
 		case "MultMenu":
+			print ("Multi Menu active");
 			if (Input.GetButtonDown ("Jump1")) {
-
+				print ("player 1 active");
 				SelectChar (0);
 
 			}
 			if (Input.GetButtonDown ("Jump2")) {
-
+				print ("Player 2 active");
 				SelectChar (1);
 
 			}
 			if (Input.GetButtonDown ("Jump3")) {
-
+				
 				SelectChar (2);
 
 			}
@@ -66,9 +71,188 @@ public class UIHandler : MonoBehaviour {
 
 			}
 			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
+				print ("Go back");
 				SwitchMenu ("MainMenu");
 			}
 
+			////////////////PLAYER ONE////////////////////////////////////
+			///
+			if (charSelection [0].GetComponent<CharSelect> ().PlayerActive && !charSelection [0].GetComponent<CharSelect> ().PlayerReady) { 
+				print ("Player 1 active but not ready");
+				if (p1B) {
+					if (Input.GetAxis ("Horizontal1") > 0) {
+						print ("Player 1 horizontal1 above 0");
+						if (match.PlayerType [0] + 1 == 4) {
+					
+							match.PlayerType [0] = 0;
+					
+						} else {
+							match.PlayerType [0]++;
+						}
+
+						charSelection [0].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [0]);
+
+					} else if (Input.GetAxis ("Horizontal1") < 0) {
+
+						if (match.PlayerType [0] - 1 == -1) {
+
+							match.PlayerType [0] = 3;
+						} else {
+							match.PlayerType [0]--;
+						}
+
+						charSelection [0].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [0]);
+					}
+				}
+			}
+
+			////////////////PLAYER TWO////////////////////////////////////
+			///
+			if (charSelection [1].GetComponent<CharSelect> ().PlayerActive && !charSelection [1].GetComponent<CharSelect> ().PlayerReady) {
+				if (p2B) {
+					if (Input.GetAxis ("Horizontal2") > 0) {
+						if (match.PlayerType [1] + 1 == 4) {
+
+							match.PlayerType [1] = 0;
+
+						} else {
+							match.PlayerType [1]++;
+						}
+
+						charSelection [1].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [1]);
+
+					} else if (Input.GetAxis ("Horizontal2") < 0) {
+
+						if (match.PlayerType [1] - 1 == -1) {
+
+							match.PlayerType [1] = 3;
+						} else {
+							match.PlayerType [1]--;
+						}
+
+						charSelection [1].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [1]);
+					}
+				}
+			}
+
+			////////////////PLAYER THREE////////////////////////////////////
+			///
+			if (charSelection [2].GetComponent<CharSelect> ().PlayerActive && !charSelection [2].GetComponent<CharSelect> ().PlayerReady) {
+				if (p3B) {
+					if (Input.GetAxis ("Horizontal3") > 0) {
+						if (match.PlayerType [2] + 1 == 4) {
+
+							match.PlayerType [2] = 0;
+
+						} else {
+							match.PlayerType [2]++;
+						}
+
+						charSelection [2].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [0]);
+
+					} else if (Input.GetAxis ("Horizontal3") < 0) {
+
+						if (match.PlayerType [2] - 1 == -1) {
+
+							match.PlayerType [2] = 3;
+						} else {
+							match.PlayerType [2]--;
+						}
+
+						charSelection [2].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [2]);
+					}
+				}
+			}
+
+			////////////////PLAYER FOUR////////////////////////////////////
+			///
+			if (charSelection [3].GetComponent<CharSelect> ().PlayerActive && !charSelection [3].GetComponent<CharSelect> ().PlayerReady) {
+				if (p4B) {
+					if (Input.GetAxis ("Horizontal4") > 0) {
+						if (match.PlayerType [3] + 1 == 4) {
+
+							match.PlayerType [3] = 0;
+
+						} else {
+							match.PlayerType [3]++;
+						}
+
+						charSelection [3].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [3]);
+
+					} else if (Input.GetAxis ("Horizontal4") < 0) {
+
+						if (match.PlayerType [3] - 1 == -1) {
+
+							match.PlayerType [3] = 3;
+						} else {
+							match.PlayerType [3]--;
+						}
+
+						charSelection [3].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [3]);
+					}
+				}
+			}
+			if (Input.GetAxis ("Horizontal1") == 0 /*<= 0.2f && Input.GetAxis ("Horizontal1") >= -0.2f*/) {
+
+				p1B = true;
+
+			} else {
+
+				p1B = false;
+
+			}
+			print ("p1B: " + p1B + "\nHorizontal1: " + Input.GetAxis ("Horizontal1"));
+			if (Input.GetAxis ("Horizontal2") == 0 /* <= 0.2f && Input.GetAxis ("Horizontal2") >= -0.2f*/) {
+
+				p2B = true;
+
+			} else {
+
+				p2B = false;
+
+			}
+			if (Input.GetAxis ("Horizontal3") == 0 /*<= 0.2f && Input.GetAxis ("Horizontal3") >= -0.2f) {
+
+				p3B = true;
+
+			} else {
+
+				p3B = false;
+
+			}
+			if (Input.GetAxis ("Horizontal4") <= 0.2f && Input.GetAxis ("Horizontal4") >= -0.2f*/) {
+
+				p4B = true;
+
+			} else {
+
+				p4B = false;
+
+			}
+			if (startButton.activeSelf) {
+
+				if (Input.GetButtonDown ("Start")) {
+
+					starter ();
+
+				}
+
+
+			}
+			break;
+		case "SingMenu":
+			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
+			
+				SwitchMenu ("MainMenu");
+			
+			}
+			break;
+		case "OptionsMenu":
+			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
+
+				SwitchMenu ("MainMenu");
+
+			}
 			break;
 		default:
 			break;
@@ -131,17 +315,15 @@ public class UIHandler : MonoBehaviour {
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerActive = true;
 			match.NumPlayers++;
 			match.PlayerType [pNumber] = 0;
-			print ("Player 1 Type: " + match.PlayerType [0]);
-			print ("Player 2 Type: " + match.PlayerType [1]);
-			print ("Player 3 Type: " + match.PlayerType [2]);
-			print ("Player 4 Type: " + match.PlayerType [3]);
-					
+								
 		}else{
 
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerReady = true;
 			readyPlayers++;
 			if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
-				startButton.SetActive(true);
+				if (teamCheck()) {
+					startButton.SetActive(true);
+				}
 			}
 		}
 	}
@@ -149,12 +331,45 @@ public class UIHandler : MonoBehaviour {
 	public void starter(){
 
 		//GameManager.StartSetup (match);
-		//print(readyPlayers);
+		print("Sending the match off!");
 
 	}
 
-	public void selectType(int arrowNum){
-		
+	public bool teamCheck(){
+	
+		int teams = 0;
+		int[] teamRoster = new int[4];
+
+		for (int i = 0; i < teamRoster.Length; i++) {
+
+			teamRoster [i] = 0;
+
+		}
+
+		for (int i = 0; i < match.PlayerType.Length; i++) {
+			if (match.PlayerType[i] != -1) {
+				teamRoster [match.PlayerType [i]]++;
+			}
+
+		}
+
+			
+		for (int i = 0; i < teamRoster.Length; i++) {
+
+			if (teamRoster [i] > 0) {
+
+				teams++;
+
+			}
+
+		}
+
+		if (teams > 1) {
+			return true;
+		} else {
+			return false;
+		}
+	
 	}
 
 }

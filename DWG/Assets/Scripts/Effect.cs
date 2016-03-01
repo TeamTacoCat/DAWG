@@ -11,7 +11,7 @@ public class Effect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<SpriteRenderer> ().sprite = worldIcon [spriteChoice];
+		//GetComponent<SpriteRenderer> ().sprite = worldIcon [spriteChoice];
 	}
 	
 	// Update is called once per frame

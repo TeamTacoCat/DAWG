@@ -17,6 +17,8 @@ public class SigilSpawn : MonoBehaviour {
 	private GameObject searchObj;
 	private GameObject claimedObj;
 
+	[SerializeField]private GameObject menuHandler;
+
 	private List<int> gridsDone = new List<int>();
 
 	public bool starter = false;
@@ -114,8 +116,11 @@ public class SigilSpawn : MonoBehaviour {
 		GameObject winObj = (GameObject)Instantiate (winImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
 		winObj.transform.SetParent (minimapCanvas.transform, false);
 		winObj.GetComponentInChildren<Text> ().text = teamName + " Team Wins!";
-		yield return new WaitForSeconds (3f);
-		GameManager.LoadScene ("MainMenu");
+		yield return null;
+		//yield return new WaitForSeconds (3f);
+		//GameManager.LoadScene ("MainMenu");
+
+		menuHandler.GetComponent<MenuHandler> ().MatchEnd ();
 
 	}
 
