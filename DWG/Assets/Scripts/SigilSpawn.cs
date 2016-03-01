@@ -25,6 +25,13 @@ public class SigilSpawn : MonoBehaviour {
 	void Start () {
 
 		Invoke ("TEMP", 3f);
+		grids = new GameObject[9];
+
+		for (int i = 0; i < grids.Length; i++) {
+		
+			grids [i] = GameObject.Find ((i + 1).ToString ());
+		
+		}
 	
 	}
 
