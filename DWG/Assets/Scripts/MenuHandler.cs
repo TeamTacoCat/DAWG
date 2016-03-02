@@ -16,7 +16,9 @@ public class MenuHandler : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		
+
+		events = GameObject.Find ("EventSystem").GetComponent<EventSystem> ();
+
 	}
 
 	// Update is called once per frame
@@ -68,9 +70,10 @@ public class MenuHandler : MonoBehaviour
 
 	public void RestartGame()
 	{
-		
-		//GameManager.StartSetup (GameManager.curMatch);
-		print("Restart Game");
+
+		GameObject gm = GameObject.Find ("GameManager");
+		gm.GetComponent<GameManager>().StartSetup (gm.GetComponent<GameManager>().curMatch);
+		Time.timeScale = 1f;
 
 	}
 

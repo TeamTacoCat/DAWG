@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour {
 
 	public void StartSetup(UIHandler.Match newMatch){
 			
+		print ("Setup starting. Match:" + newMatch.MatchType);
 		curMatch = newMatch;
 		StartCoroutine ("SetupMatch", newMatch);
 			
@@ -106,23 +107,36 @@ public class GameManager : MonoBehaviour {
 
 		levelLoaded = false;
 			
-		LoadScene(newMatch.MatchType);
+		//if (newMatch.MatchType != SceneManager.GetActiveScene ().name) {
+			LoadScene (newMatch.MatchType);
+		//} else {
+		
+		//	SceneManager.UnloadScene (SceneManager.GetActiveScene ().buildIndex);
+		//	LoadScene (newMatch.MatchType);
+		
+		//}
 			
 		//yield return new WaitUntil (() => levelLoaded == true);
 
 		while (!levelLoaded) {
 		
-			yield return new WaitForSeconds (.3f);
+			print ("Loading...");
+			yield return null;
+			//yield return new WaitForSeconds (.3f);
 		
+
 		}
+
+		print ("Loaded.");
 
 		if (newMatch.MatchType == "Singleplayer") {
 				
-				SinglePlayerSetup(newMatch);
+			SinglePlayerSetup(newMatch);
 				
 		} else if(newMatch.MatchType == "LevelLayout") {
 				
-				MultiPlayerSetup(newMatch);
+			print ("Multiplayer setup chosen.");
+			MultiPlayerSetup(newMatch);
 				
 		}
 			
@@ -171,6 +185,7 @@ public class GameManager : MonoBehaviour {
 		}
 				
 		sigilObj.GetComponent<SigilSpawn> ().minimapCanvas = canvasObj;
+		sigilObj.GetComponent<SigilSpawn> ().menuHandler = GameObject.Find (canvasObj.name + "/MenuHandler");
 
 		int[] teamRoster = new int[4];
 				
