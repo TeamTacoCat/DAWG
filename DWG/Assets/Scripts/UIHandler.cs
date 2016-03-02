@@ -26,6 +26,8 @@ public class UIHandler : MonoBehaviour {
 	private bool p3B;
 	private bool p4B;
 
+	private GameObject gManager;
+
 
 
 
@@ -39,6 +41,8 @@ public class UIHandler : MonoBehaviour {
 		match.NumPlayers = 0;
 		readyPlayers = 0;
 		startButton.SetActive (false);
+
+		gManager = GameObject.Find ("GameManager");
 
 
 	}
@@ -291,7 +295,7 @@ public class UIHandler : MonoBehaviour {
 		case "MultMenu":
 			menus [1].SetActive (true);
 			activeMenu = menus [1];
-			
+			match.MatchType = "LevelLayout";
 			break;
 		case "SingMenu":
 			menus [2].SetActive (true);
@@ -330,7 +334,7 @@ public class UIHandler : MonoBehaviour {
 
 	public void starter(){
 
-		//GameManager.StartSetup (match);
+		gManager.GetComponent<GameManager>().StartSetup (match);
 		print("Sending the match off!");
 
 	}

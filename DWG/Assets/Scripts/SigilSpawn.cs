@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class SigilSpawn : MonoBehaviour {
 
-	[SerializeField]private GameObject[] grids;
-	[SerializeField]private GameObject minimapCanvas;
+	private GameObject[] grids = new GameObject[9];
+	public GameObject minimapCanvas{ get; set; }
 	private int sigilsSpawned;
 
 	[SerializeField]private GameObject sigil;
@@ -17,7 +17,7 @@ public class SigilSpawn : MonoBehaviour {
 	private GameObject searchObj;
 	private GameObject claimedObj;
 
-	[SerializeField]private GameObject menuHandler;
+	public GameObject menuHandler{ get; set; }
 
 	private List<int> gridsDone = new List<int>();
 
@@ -27,6 +27,12 @@ public class SigilSpawn : MonoBehaviour {
 	void Start () {
 
 		Invoke ("TEMP", 3f);
+
+		for (int i = 0; i < grids.Length; i++) {
+		
+			grids [i] = GameObject.Find ("GridLayout" + "/" + (i+1).ToString ());
+		
+		}
 	
 	}
 
@@ -149,6 +155,7 @@ public class SigilSpawn : MonoBehaviour {
 		curSigil = (GameObject)Instantiate (sigil, gridArray[(int)Random.Range (0, gridArray.Length)].position, Quaternion.Euler (0, 0, 0));
 		curSigil.GetComponent<Sigil> ().grid = gridNumber;
 		curSigil.GetComponent<Sigil> ().spawner = this.gameObject;
+		print(curSigil.GetComponent<Sigil>().spawner.name);
 
 		grids [gridNumber-1].GetComponent<GridDetection> ().activeSigil = curSigil;
 
