@@ -1,0 +1,46 @@
+MenuSFX (sounds used on menu screens, including pause and end match menus)
+sfx_deselect_001 - plays each time a player goes back through a menu
+sfx_select_001 - plays each time a player selects an option on a menu
+sfx_scroll_001 - plays each time a player moves through an menu option (but does not select)
+
+
+EnvironmentSFX (sounds used in multiplayer matches [some overlap into single player matches as well])
+	AmbientSFX (sounds in the environment, not connected to anything)
+	sfx_wind_001 - use undecided, probably intermittently in high places
+	
+	CharSFX (sounds attached to the player character)
+	sfx_collide_001 - plays each time a player character hits another character (player or enemy)
+	sfx_dash_001 - plays each time a player uses the Dash mechanic (not multijump)
+	sfx_jump_001 - plays each time a player performs a jump (regular or multi)
+	sfx_land_001 - plays each time a player character lands from jumping or falling
+	sfx_movement_001 - plays while the player character is moving regularly (can be lowered in volume if necessary)
+	sfx_movement_002 - alternative to play while the player character is moving regularly; use if preferred (volume can be lowered if necessary)
+
+	MatchSFX (sounds related to the HUD other than Power Ups)
+	sfx_countdownBuzzer_001 - plays three times at the beginning of the match for counts 3, 2, and 1
+	sfx_endMatchBuzzeer_001 - plays when a match is completed
+	sfx_proximityBeeper_001 - plays as the Proximity Indicator flashes. Increases frequency as a player gets closer to the SIGIL.
+	sfx_startBuzzer_001 - plays after the countdown buzzer, signals GO to the players
+	
+	RuneSFX (sounds related to the pick up and use of Power Ups)
+	sfx_confusionHit_001 - plays when the Confusion Hex hits a player character
+	sfx_confusionThrow_001 - plays when the Confusion Hex is used
+	sfx_discombobEnd_001 - plays when the Discombobulator is deactivated
+	sfx_discombobUse_001 - plays when the Discombobulator is used
+	sfx_fuelRestore_001 - plays when the Fuel Restore is used
+	sfx_groundedEnd_001 - plays when You're Grounded is deactivated
+	sfx_groundedUse_001 - plays when You're Grounded is used
+	sfx_runePickUp_001 - plays when a player picks up a Power Up
+	sfx_slipStreamEnd_001 - plays when Slip Stream deactivates
+	sfx_slipStreamUse_001 - plays when Slip Stream is used
+	sfx_speedCutterEnd_001 - plays when Speed Cutter deactivates
+	sfx_speedCutterUse_001 - plays when Speed Cutter is used
+
+	SigilSFX (sounds connected to the SIGIL)
+	sfx_sigilAura_001 - ambient sound looped when SIGIL is activated
+	sfx_sigilBarFill_001 - plays as a player fills their SIGIL bar
+	sfx_sigilGet_001 - plays when a player successfully captures a SIGIL
+
+BGM (Background Music)
+bgm_menuWorking_001 - placeholder BGM for main menu screens
+bgm_matchNormalWorking_001 - placeholder BGM for normal matches
