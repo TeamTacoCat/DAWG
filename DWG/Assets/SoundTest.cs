@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SoundTest : MonoBehaviour {
 
+	public AudioClip[] clip;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,8 +19,13 @@ public class SoundTest : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)){
 
-				if(hit.collider.gameObject.name = "SoundTest"){
+				print("Raycast hit:"+hit.collider.gameObject.name);
 
+				if(hit.collider.gameObject.name == "SoundTest"){
+
+					print("Raycast hit sound target");
+
+					SFX.sound.PlaySound(clip[Random.Range(0,clip.Length)]);
 
 
 				}
