@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
 			GMInstance = this;
 			DontDestroyOnLoad(this);
 			Application.targetFrameRate = 60;
-			curScene = SceneManager.GetActiveScene ().name;
+			//curScene = SceneManager.GetActiveScene ().name;
 
 		}
 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 
 	public static void LoadScene(string sceneName){
 
-		SceneManager.LoadScene (sceneName);
+		//SceneManager.LoadScene (sceneName);
 		if (sceneName == "LevelLayout") {
 
 			for (int i = 0; i < points.Length; i++) {
