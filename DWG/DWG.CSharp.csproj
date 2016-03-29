@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\PlayerCam.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Reference Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\SFX.cs" />
     <Compile Include="Assets\Scripts\SFXSingleton.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sigil.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\Scripts\UIHandler.cs" />
     <Compile Include="Assets\Scripts\tempRot.cs" />
     <Compile Include="Assets\Searcher.cs" />
+    <Compile Include="Assets\SoundTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DWG_SFX\DWG SFX\soundGuide.txt" />
