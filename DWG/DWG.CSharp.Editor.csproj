@@ -90,6 +90,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="DWG.CSharp.Plugins.csproj">
+      <Project>{B43EEEBB-A96F-D560-B7B4-C6892996A6C0}</Project>
+      <Name>DWG.CSharp.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="DWG.CSharp.csproj">
       <Project>{0E750BBC-4783-62DB-CC5A-49AF3380647E}</Project>
       <Name>DWG.CSharp</Name>
@@ -100,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DWG_SFX\DWG SFX\soundGuide.txt" />
+    <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
