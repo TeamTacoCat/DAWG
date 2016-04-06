@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour {
 
 	public static void LoadScene(string sceneName){
 
-		SceneManager.LoadScene (sceneName);
+		//SceneManager.LoadScene (sceneName);
+		Application.LoadLevel (sceneName);
 		if (sceneName == "LevelLayout" || sceneName == "SinglePlayerLevel") {
 
 			for (int i = 0; i < points.Length; i++) {
@@ -114,7 +115,7 @@ public class GameManager : MonoBehaviour {
 		levelLoaded = false;
 		Time.timeScale = 1f;
 			
-		if (newMatch.MatchType != SceneManager.GetActiveScene ().name) {
+		if (newMatch.MatchType != Application.loadedLevelName/*SceneManager.GetActiveScene ().name*/) {
 			LoadScene (newMatch.MatchType);
 		} else {
 		

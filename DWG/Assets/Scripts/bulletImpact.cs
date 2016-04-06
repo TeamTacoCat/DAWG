@@ -12,6 +12,7 @@ public class bulletImpact : MonoBehaviour {
 	void Start () {
 
 		StartCoroutine ("HomingDelay");
+		StartCoroutine ("KillSelf");
 	
 	}
 	
@@ -40,11 +41,20 @@ public class bulletImpact : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll){
 
+		print ("Bullet hit");
+
 		if (coll.gameObject.tag == "Player") {
 			Vector3 hitDir = (coll.transform.position - transform.position).normalized;
 			coll.GetComponent<Rigidbody> ().AddForce (hitDir * knockBack, ForceMode.Impulse);
 		}
 		Destroy (this.gameObject);
 	
+	}
+
+	IEnumerator KillSelf(){
+
+		yield return new WaitForSeconds(10f);
+		Destroy (this.gameObject);
+
 	}
 }

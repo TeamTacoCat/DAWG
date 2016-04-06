@@ -32,7 +32,9 @@ public class Searcher : MonoBehaviour {
 				print ("In Searcher, sigil != null");
 				GetComponent<Image> ().color = new Color (0, 0, 0);
 				yield return new WaitForSeconds (DistanceTime());
-				GetComponent<Image> ().color = new Color (1, 1, 1);
+				if(sigil && player){
+				GetComponent<Image> ().color = ColorDistance();
+				}
 				yield return new WaitForSeconds (.1f);
 		
 			}
@@ -49,6 +51,28 @@ public class Searcher : MonoBehaviour {
 		float finalTime = (Vector3.Distance (player.transform.position, sigil.transform.position) * maxTime) / 509;
 		return finalTime;
 	
+	}
+
+	Color ColorDistance(){
+
+		Color c;
+
+		if (DistanceTime () > .7) {
+		
+			c = Color.white;
+
+		} else if (DistanceTime () > .3f) {
+
+			c = Color.yellow;
+
+		}else {
+		
+			c = Color.red;
+
+		}
+
+		return c;
+
 	}
 
 }
