@@ -152,6 +152,17 @@ ModelImporter:
     4300016: middleRing
     4300018: topRing
     4300020: thingThatGoesInsideCylinder
+    6400000: bigCylinder
+    6400002: bottomRing
+    6400004: buildingBase
+    6400006: insideCyclinderThing
+    6400008: middleRing
+    6400010: Poles
+    6400012: pSphere3
+    6400014: thingThatGoesInsideCylinder
+    6400016: topPeg
+    6400018: topRing
+    6400020: topSphere
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -179,7 +190,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

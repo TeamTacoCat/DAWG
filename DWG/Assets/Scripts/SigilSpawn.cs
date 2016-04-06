@@ -23,8 +23,14 @@ public class SigilSpawn : MonoBehaviour {
 
 	public bool starter = false;
 
+	public TimeAttackClock timer{get; set;}
+
+	private bool finished;
+
 	// Use this for initialization
 	void Start () {
+
+		finished = false;
 
 		Invoke ("TEMP", 3f);
 
@@ -48,14 +54,34 @@ public class SigilSpawn : MonoBehaviour {
 		if (starter) {
 			if (gridsDone.Count <= 8) {
 
-				CheckMajority ();
+				if (GameManager.teams > 1) {
+
+					CheckMajority ();
+				
+				} else {
+				
+					SinglePlayerResolution ();
+				
+				}
 
 				if (curSigil == null) {
 		
 					ChooseGrid ();
 		
 				}
-			} 
+			} else if (GameManager.teams == 3) {
+			
+				TIE ();
+			
+			} else if (GameManager.teams == 1) {
+
+				SinglePlayerResolution ();
+			
+			} else {
+			
+				CheckMajority ();
+			
+			}
 		}
 	
 	}
@@ -96,38 +122,84 @@ public class SigilSpawn : MonoBehaviour {
 
 	}
 
+	void SinglePlayerResolution(){
+
+		if (timer) {
+		
+			if (timer.timeLeft <= 0) {
+			
+				Finish (7);
+			
+			} else if (gridsDone.Count >= 9) {
+			
+				Finish (6);
+			
+			}
+		
+		}
+
+
+	}
+
+	void TIE(){
+
+		Finish (5);
+
+	}
+
 
 	void Finish(int team){
 
-		string teamName = " ";
+		if (finished == false) {
 
-		switch (team) {
+			finished = true;
 
-		case 1:
-			teamName = "Red";
-			break;
-		case 2:
-			teamName = "Blue";
-			break;
-		case 3:
-			teamName = "Green";
-			break;
-		case 4:
-			teamName = "Yellow";
-			break;
-		default:
-			break;
+			string teamName = " ";
+
+			switch (team) {
+
+			case 1:
+				teamName = "Red";
+				break;
+			case 2:
+				teamName = "Blue";
+				break;
+			case 3:
+				teamName = "Green";
+				break;
+			case 4:
+				teamName = "Yellow";
+				break;
+			default:
+				break;
+
+			}
+
+			GameObject winObj = (GameObject)Instantiate (winImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
+			winObj.transform.SetParent (minimapCanvas.transform, false);
+			winObj.GetComponentInChildren<Text> ().text = teamName + " Team Wins!";
+			//yield return new WaitForSeconds (3f);
+			//GameManager.LoadScene ("MainMenu");
+
+			if (team == 5) {
+		
+				winObj.GetComponentInChildren<Text> ().text = "Tie Game!";
+		
+			}
+			if (team == 6) {
+		
+				winObj.GetComponentInChildren<Text> ().text = "You win!";
+		
+			}
+			if (team == 7) {
+		
+				winObj.GetComponentInChildren<Text> ().text = "You lose!";
+		
+			}
+
+			menuHandler.GetComponent<MenuHandler> ().MatchEnd ();
 
 		}
-
-		GameObject winObj = (GameObject)Instantiate (winImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
-		winObj.transform.SetParent (minimapCanvas.transform, false);
-		winObj.GetComponentInChildren<Text> ().text = teamName + " Team Wins!";
-		//yield return new WaitForSeconds (3f);
-		//GameManager.LoadScene ("MainMenu");
-
-		menuHandler.GetComponent<MenuHandler> ().MatchEnd ();
-
 	}
 
 	void ChooseGrid(){
@@ -161,8 +233,12 @@ public class SigilSpawn : MonoBehaviour {
 
 		searchObj = (GameObject)Instantiate (searchImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
 		searchObj.transform.SetParent (minimapCanvas.transform, false);
-		searchObj.GetComponent<RectTransform> ().localPosition = minimapCanvas.GetComponent<MinimapPos> ().GetGridPos(gridNumber);
-
+		searchObj.GetComponent<RectTransform> ().localPosition = minimapCanvas.GetComponent<MinimapPos> ().GetGridPos (gridNumber);
+		if (GameManager.teams == 1) {
+		
+			searchObj.GetComponent<RectTransform> ().localPosition = new Vector2 (searchObj.GetComponent<RectTransform> ().localPosition.x + 778, searchObj.GetComponent<RectTransform> ().localPosition.y + 346);
+		
+		}
 		print ("Sigil spawned at:" + curSigil.transform.position);
 
 		gridsDone.Add (gridNumber);
@@ -174,6 +250,11 @@ public class SigilSpawn : MonoBehaviour {
 		claimedObj = (GameObject)Instantiate (claimedImage, Vector3.zero, Quaternion.Euler (0, 0, 0));
 		claimedObj.transform.SetParent (minimapCanvas.transform, false);
 		claimedObj.GetComponent<RectTransform> ().localPosition = minimapCanvas.GetComponent<MinimapPos> ().GetGridPos(gridClaimed);
+		if (GameManager.teams == 1) {
+
+			claimedObj.GetComponent<RectTransform> ().localPosition = new Vector2 (claimedObj.GetComponent<RectTransform> ().localPosition.x + 778, claimedObj.GetComponent<RectTransform> ().localPosition.y + 346);
+
+		}
 
 		switch (team) {
 
