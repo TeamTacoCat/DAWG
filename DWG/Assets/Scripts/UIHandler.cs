@@ -298,9 +298,14 @@ public class UIHandler : MonoBehaviour {
 			match.MatchType = "LevelLayout";
 			break;
 		case "SingMenu":
+			/*
 			menus [2].SetActive (true);
 			activeMenu = menus [2];
-			
+			*/
+			match.MatchType = "SinglePlayerLevel";
+			match.NumPlayers = 1;
+			match.PlayerType [0] = 0;
+			starter ();
 			break;
 		case "OptionsMenu":
 			menus [3].SetActive (true);

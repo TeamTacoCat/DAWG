@@ -19,9 +19,17 @@ public class Detection : MonoBehaviour {
 
 		if (coll.tag == "Player") {
 		
-			enemy.GetComponentInChildren<EnemyKnockback> ().chaseTarget = coll.gameObject;
-			enemy.GetComponentInChildren<EnemyKnockback> ().detected = true;
-		
+			print ("Player detected");
+			if (enemy.GetComponentInChildren<EnemyKnockback> ()) {
+				enemy.GetComponentInChildren<EnemyKnockback> ().chaseTarget = coll.gameObject;
+				enemy.GetComponentInChildren<EnemyKnockback> ().detected = true;
+			} else if (enemy.GetComponentInChildren<ShootEnemy> ()) {
+			
+				print ("Shoot enemy found it");
+				enemy.GetComponentInChildren<ShootEnemy> ().chaseTarget = coll.gameObject;
+				enemy.GetComponentInChildren<ShootEnemy> ().detected = true;
+			
+			}
 		}
 
 	}
@@ -30,9 +38,16 @@ public class Detection : MonoBehaviour {
 
 		if (coll.tag == "Player") {
 
-			enemy.GetComponentInChildren<EnemyKnockback> ().detected = false;
-			enemy.GetComponentInChildren<EnemyKnockback> ().chaseTarget = null;
+			print ("Player has exited");
+			if (enemy.GetComponentInChildren<EnemyKnockback> ()) {
+				enemy.GetComponentInChildren<EnemyKnockback> ().detected = false;
+				enemy.GetComponentInChildren<EnemyKnockback> ().chaseTarget = null;
+			}else if (enemy.GetComponentInChildren<ShootEnemy> ()) {
 
+				enemy.GetComponentInChildren<ShootEnemy> ().chaseTarget = null;
+				enemy.GetComponentInChildren<ShootEnemy> ().detected = false;
+
+			}
 		}
 
 	}

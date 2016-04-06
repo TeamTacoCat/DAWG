@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
 //	private float maxXValue;
 	public float currentFuel{ get; set; }
 
-	[SerializeField]private int fuelRegen = 1;
+	[SerializeField]private int fuelRegen = 3;
 	[SerializeField]private float fuelRegenTime = .05f;
 	[SerializeField]private int jumpCost = 20;
-	[SerializeField]private int dashCost = 20;
+	[SerializeField]private int dashCost = 10;
 
 	private GameObject dashboox;
 	private GameObject[] players = new GameObject[4];
@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
 		currentFuel = maxFuel;
 		HandleFuel ();
 
-		dashCost = 20;
-		jumpCost = 33;
+		dashCost = 15;
+		jumpCost = 25;
 
 		foreach (Transform t in GetComponentsInChildren<Transform>()) {
 

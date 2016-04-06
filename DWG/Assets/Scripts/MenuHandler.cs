@@ -18,6 +18,7 @@ public class MenuHandler : MonoBehaviour
 	{
 
 		events = GameObject.Find ("EventSystem").GetComponent<EventSystem> ();
+		Time.timeScale = 1f;
 
 	}
 
@@ -85,6 +86,7 @@ public class MenuHandler : MonoBehaviour
 
 	public void MatchEnd(){
 
+		print ("Match end menu activated");
 		matchEndMenu.SetActive (true);
 		Time.timeScale = 0;
 		events.SetSelectedGameObject (defaultMatchEndButton);

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour {
 
 	public UIHandler.Match curMatch{ get; set; }
 
+	[SerializeField]private GameObject loadScreen;
+
 	// Use this for initialization
 	void Start () {
 		if (GMInstance) {
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour {
 
 			GMInstance = this;
 			DontDestroyOnLoad(this);
+			DontDestroyOnLoad (loadScreen);
 			Application.targetFrameRate = 60;
 			//curScene = SceneManager.GetActiveScene ().name;
 
@@ -56,8 +59,8 @@ public class GameManager : MonoBehaviour {
 
 	public static void LoadScene(string sceneName){
 
-		//SceneManager.LoadScene (sceneName);
-		if (sceneName == "LevelLayout") {
+		SceneManager.LoadScene (sceneName);
+		if (sceneName == "LevelLayout" || sceneName == "SinglePlayerLevel") {
 
 			for (int i = 0; i < points.Length; i++) {
 
@@ -111,19 +114,20 @@ public class GameManager : MonoBehaviour {
 		levelLoaded = false;
 		Time.timeScale = 1f;
 			
-		//if (newMatch.MatchType != SceneManager.GetActiveScene ().name) {
+		if (newMatch.MatchType != SceneManager.GetActiveScene ().name) {
 			LoadScene (newMatch.MatchType);
-		//} else {
+		} else {
 		
-		//	SceneManager.UnloadScene (SceneManager.GetActiveScene ().buildIndex);
-		//	LoadScene (newMatch.MatchType);
+			//SceneManager.UnloadScene (SceneManager.GetActiveScene ().buildIndex);
+			LoadScene (newMatch.MatchType);
 		
-		//}
+		}
 			
 		//yield return new WaitUntil (() => levelLoaded == true);
 
 		while (!levelLoaded) {
 		
+			loadScreen.SetActive (true);
 			print ("Loading...");
 			yield return null;
 			//yield return new WaitForSeconds (.3f);
@@ -131,9 +135,10 @@ public class GameManager : MonoBehaviour {
 
 		}
 
+		loadScreen.SetActive (false);
 		print ("Loaded.");
 
-		if (newMatch.MatchType == "Singleplayer") {
+		if (newMatch.MatchType == "SinglePlayerLevel") {
 				
 			SinglePlayerSetup(newMatch);
 				
@@ -153,8 +158,34 @@ public class GameManager : MonoBehaviour {
 	}
 		
 	void SinglePlayerSetup(UIHandler.Match newMatch){
+
+		print ("Single player setup beginning");
+		teams = 1;
+		GameObject sigilObj = (GameObject)Instantiate (sigilSpawner, Vector3.zero, Quaternion.Euler (0, 0, 0));
+
+		GameObject canvasObj = (GameObject)Instantiate (UICanvas [0], Vector3.zero, Quaternion.Euler (0, 0, 0));
+		canvasObj.name = "Canvas1";
+
+		sigilObj.GetComponent<SigilSpawn> ().minimapCanvas = canvasObj;
+		sigilObj.GetComponent<SigilSpawn> ().menuHandler = GameObject.Find ("Canvas1/MenuHandler");
+		sigilObj.GetComponent<SigilSpawn> ().timer = canvasObj.GetComponentInChildren<TimeAttackClock> ();
+
+		GameObject player = (GameObject)Instantiate (players [0], Vector3.zero, Quaternion.Euler (0, 0, 0));
+		player.GetComponent<PlayerController> ().look = (GameObject)Instantiate (look, player.transform.position, Quaternion.Euler (0, 0, 0));
+		player.GetComponent<PlayerController> ().cam = (GameObject)Instantiate (cams [0], new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 5), Quaternion.Euler (0, 0, 0));
 			
-			
+		player.GetComponent<PlayerController> ().cam.GetComponent<PlayerCam> ().target = player.GetComponent<Transform>();
+
+		GameObject fuelTrn = GameObject.Find ("Canvas1/Gauge1/FuelBackground/Fuel");
+		GameObject fuelTxt = GameObject.Find ("Canvas1/Gauge1/Text");
+		GameObject.Find ("Canvas1/MinimapArrow1").GetComponent<Arrow> ().player = player;
+
+		GameObject.Find ("Canvas1/SearchTracker1").GetComponent<Searcher> ().player = player;
+		GameObject.Find ("Canvas1/Score1").GetComponent<Score> ().player = player.GetComponent<Player> ();
+
+		player.transform.position = new Vector3(-14, 1.5f, -516);
+		player.GetComponent<PlayerController> ().playerNum = 1;
+		player.name = "Player1";
 			
 	}
 

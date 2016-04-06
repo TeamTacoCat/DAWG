@@ -48,15 +48,15 @@ public class MusicSingleton : MonoBehaviour {
 			source.clip = songs [0];
 			source.Play ();
 		
-		}else if(GameManager.curScene == "LevelLayout" || GameManager.curScene == "Singleplayer"){
+		}else if(GameManager.curScene == "LevelLayout" || GameManager.curScene == "SinglePlayerLevel"){
 
-			if (source.clip != songs [1]) {
+			//if (source.clip != songs [1]) {
 			
-				source.Stop ();
-				source.clip = songs [1];
-				source.Play ();
+			source.Stop ();
+			source.clip = songs [Random.Range(1, 3)];
+			source.Play ();
 			
-			}
+			//}
 
 		}
 

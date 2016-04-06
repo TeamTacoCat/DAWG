@@ -61,7 +61,14 @@ public class Arrow : MonoBehaviour {
 			y = (player.transform.position.z * -123) / -540;
 
 		}
-		transform.localPosition = new Vector2 (x, y);
+
+		if (GameManager.teams > 1) {
+			transform.localPosition = new Vector2 (x, y);
+		} else {
+		
+			transform.localPosition = new Vector2 (x+775, y+350);
+		
+		}
 		transform.rotation = Quaternion.Euler(0, 0, -1*player.transform.rotation.eulerAngles.y);
 		transform.SetAsLastSibling ();
 
