@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
+	public AudioClip[] playeraud = new AudioClip[17]; //size = 17
+
 	public float maxSpeed{ get; set; }
 	[SerializeField]private float accel;
 	[SerializeField]private float jumpHeight;
@@ -34,6 +36,15 @@ public class PlayerController : MonoBehaviour
 	public Image visualFuel;
 
 	private Animator anim;
+
+
+	public bool confused = false;
+	public bool slicked = false;
+
+	[SerializeField]private LayerMask hexMask;
+	[SerializeField]private LayerMask ignoreLayer;
+
+	[SerializeField]private GameObject bullet;
 
 	// Use this for initialization
 	void Start ()
@@ -93,10 +104,14 @@ public class PlayerController : MonoBehaviour
 			anim.SetBool ("grounded", GetComponent<Player> ().grounded);
 			anim.SetFloat ("horizVel", (GetComponent<Rigidbody> ().velocity.x + GetComponent<Rigidbody> ().velocity.z));
 
-			HorizontalMovement ();
+			if (slicked == false){
+				HorizontalMovement ();
+			}  
 			LookDirection ();
 			if (Input.GetButtonDown ("Jump" + playerNum.ToString ())) {
-				Jump ();
+				if (!slicked) {
+					Jump ();
+				}
 			}
 			if (Input.GetButtonDown ("Interact" + playerNum.ToString ())) {
 		
@@ -111,7 +126,9 @@ public class PlayerController : MonoBehaviour
 
 			if (Input.GetButtonDown ("Dash" + playerNum.ToString ())) {
 		
-				Dash ();
+				if (slicked == false){
+					Dash ();
+				}
 		
 			}
 		}
@@ -122,6 +139,11 @@ public class PlayerController : MonoBehaviour
 	
 		float x = Input.GetAxis ("Horizontal" + playerNum.ToString ()) * accel;
 		float z = Input.GetAxis ("Vertical" + playerNum.ToString ()) * accel;
+
+		if (confused == true) {
+			x *= -1;
+			z *= -1;
+		}
 
 		Vector3 zDir = (transform.position - cam.transform.position).normalized;
 		zDir.y = 0;
@@ -170,6 +192,11 @@ public class PlayerController : MonoBehaviour
 			//GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, force, GetComponent<Rigidbody> ().velocity.z);
 			GetComponent<Rigidbody> ().AddForce (0, force, 0, ForceMode.VelocityChange);
 			anim.SetBool ("jump", true);
+			SFX.sound.PlaySound (playeraud [9]);
+			if (Random.Range (1, 3) == 1) {
+				SFX.sound.PlaySound (playeraud [10]);
+				print ("Play it");
+			}
 		} else if (currentFuel >= jumpCost) {
 			if (GetComponent<Rigidbody> ().velocity.y < 0) {
 				GetComponent<Rigidbody> ().velocity = new Vector3 (GetComponent<Rigidbody> ().velocity.x, 0, GetComponent<Rigidbody> ().velocity.z);
@@ -177,6 +204,11 @@ public class PlayerController : MonoBehaviour
 			currentFuel -= jumpCost;
 			GetComponent<Rigidbody> ().AddForce (0, force, 0, ForceMode.VelocityChange);
 			anim.SetBool ("jump", true);
+			SFX.sound.PlaySound (playeraud [9]);
+			if (Random.Range (1, 3) == 1) {
+				SFX.sound.PlaySound (playeraud [10]);
+				print ("Play it");
+			}
 		}
 	}
 
@@ -184,6 +216,8 @@ public class PlayerController : MonoBehaviour
 	public void SetMaxSpeed(float mSpeed){
 		print ("Speed up triggered");
 		maxSpeed = mSpeed;
+		SFX.sound.PlaySound (playeraud [11]);
+		SFX.sound.PlaySound (playeraud [12]);
 	}
 
 	public void resetMaxSpeed(float mSpeed){
@@ -225,6 +259,10 @@ public class PlayerController : MonoBehaviour
 		if (currentFuel > dashCost) {
 		
 			currentFuel -= dashCost;
+			SFX.sound.PlaySound (playeraud [0]);
+			if (Random.Range (1, 3) == 1) {
+				SFX.sound.PlaySound (playeraud [1]);
+			}
 
 			float x = Input.GetAxis ("Horizontal" + playerNum.ToString ()) * accel;
 			float z = Input.GetAxis ("Vertical" + playerNum.ToString ()) * accel;
@@ -265,11 +303,15 @@ public class PlayerController : MonoBehaviour
 		print ("FuelRestore triggered");
 		if (currentFuel < maxFuel)
 			currentFuel = maxFuel;
+		SFX.sound.PlaySound (playeraud [5]);
+		SFX.sound.PlaySound (playeraud [6]);
 	}
 
 
 	public void Discombobulate(){
 		print ("Discombobulate triggered");
+		SFX.sound.PlaySound (playeraud [2]);
+		SFX.sound.PlaySound (playeraud [3]);
 		if (arrows [0] != null) {
 			if (arrows [0].GetComponent<Arrow> ().player.GetComponent<Player>().teamNum != GetComponent<Player> ().teamNum) {
 				arrows [0].GetComponent<Image> ().enabled = false;
@@ -337,12 +379,15 @@ public class PlayerController : MonoBehaviour
 		foreach (GameObject p in arrows) {
 			if (p != null) {
 				p.GetComponent<Image> ().enabled = true;
+				SFX.sound.PlaySound (playeraud [4]);
 			}
 		}
 	}
 
 	public void Grounded(){
 		print ("Grounded triggered");
+		SFX.sound.PlaySound (playeraud [7]);
+		SFX.sound.PlaySound (playeraud [8]);
 		if (players [0] != null) {
 			if (players [0].GetComponent<Player> ().teamNum != GetComponent<Player> ().teamNum) {
 				players [0].GetComponent<PlayerController> ().currentFuel = 0;
@@ -367,6 +412,8 @@ public class PlayerController : MonoBehaviour
 
 	public void SpeedCutter(){
 		print ("SpeedCutter triggered");
+		SFX.sound.PlaySound (playeraud [14]);
+		SFX.sound.PlaySound (playeraud [15]);
 		if (players [0] != null) {
 			if (players [0].GetComponent<Player> ().teamNum != GetComponent<Player> ().teamNum) {
 				players [0].GetComponent<PlayerController> ().maxSpeed = 15;
@@ -398,5 +445,75 @@ public class PlayerController : MonoBehaviour
 				p.GetComponent<PlayerController> ().maxSpeed = 30;
 			}
 		}
+		SFX.sound.PlaySound (playeraud [16]);
 	}
+
+	public IEnumerator Confusion (){
+		confused = true;
+		yield return new WaitForSeconds (10.0f);
+		confused = false;
+	}
+
+	public void Oily (){
+		
+		//instance.GetComponent<bulletImpact> ().pUp = GetComponent<Player> ().teamNum;
+		StartCoroutine("Hex", GetComponent<Player>().teamNum);
+	}
+
+
+	public IEnumerator NoMovementTimer(){
+		yield return new WaitForSeconds (5.0f);
+		slicked = false;
+	}
+
+	public IEnumerator Hex (int pUp) {
+		//Vector3 Dir = (transform.position - cam.transform.position).normalized;
+		Ray ray = cam.GetComponent<Camera>().ViewportPointToRay(cam.transform.position);
+		GameObject instance;
+		Debug.DrawRay (cam.transform.position, cam.transform.forward, Color.black, 50f);
+		print ("HEX");
+		//Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position, Color.red, 5f);
+		//hit = Physics.Raycast (transform.position, -Vector3.up, out hit, hexMask);
+
+		GameObject obj = transform.Find("HexColl"+playerNum.ToString()).gameObject;
+		print (obj.name);
+		obj.layer = LayerMask.NameToLayer ("Ignore Raycast");
+//		if(Physics.RaycastAll(ray, out hit){
+//
+//			print("
+//
+//		}
+		//ignoreLayer.value;
+		if(pUp == 1 || pUp == 2 || pUp == 3 || pUp == 4){
+			instance = (GameObject)Instantiate (bullet, this.transform.position, this.transform.rotation);
+			instance.GetComponent<bulletImpact> ().pUp = pUp;
+			Physics.IgnoreCollision (instance.GetComponent<Collider> (), this.GetComponent<Collider> ());
+			//Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position, Color.red, 5f);
+			//Debug.DrawRay (transform.position, hit.collider.transform.position, Color.black, 50f);
+//			if (hit.collider.gameObject.tag == "Player") {
+//				instance.transform.LookAt (hit.collider.transform.parent.transform.position);
+//				instance.GetComponent<bulletImpact> ().target = hit.collider.gameObject.transform.parent.gameObject;
+//			}
+		}else if (pUp == 5 || pUp == 6) {
+			instance = (GameObject)Instantiate (bullet, new Vector3(transform.position.x, transform.position.y+.7f, transform.position.z), cam.transform.rotation);
+			instance.GetComponent<bulletImpact> ().pUp = pUp;
+			Physics.IgnoreCollision (instance.GetComponent<Collider> (), this.GetComponent<Collider> ());
+			//print ("found an object - distant: " + hit.distance);
+			//print (hit.collider.gameObject.name);
+			//Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position, Color.red, 5f);
+			//Debug.DrawRay (transform.position, hit.collider.transform.position, Color.black, 50f);
+			//instance.transform.LookAt (hit.collider.transform.parent.transform.position);
+			//instance.GetComponent<bulletImpact> ().target = hit.collider.gameObject.transform.parent.gameObject;
+		}else{
+
+			yield return null;
+			print ("Misfire");
+			GetComponent<Player>().SetPowerUp(pUp + 1);
+
+		}
+
+		yield return new WaitForSeconds (.1f);
+		obj.layer = LayerMask.NameToLayer ("Hex");
+	}
+
 }

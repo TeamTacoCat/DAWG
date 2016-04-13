@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Detection : MonoBehaviour {
 
-	[SerializeField]private GameObject enemy;
+	public GameObject enemy{ get; set; }
 
 	// Use this for initialization
 	void Start () {
@@ -21,11 +21,13 @@ public class Detection : MonoBehaviour {
 		
 			print ("Player detected");
 			if (enemy.GetComponentInChildren<EnemyKnockback> ()) {
+				SFX.sound.PlaySound (enemy.GetComponentInChildren<EnemyKnockback>().chaseraud[0]);
 				enemy.GetComponentInChildren<EnemyKnockback> ().chaseTarget = coll.gameObject;
 				enemy.GetComponentInChildren<EnemyKnockback> ().detected = true;
 			} else if (enemy.GetComponentInChildren<ShootEnemy> ()) {
 			
 				print ("Shoot enemy found it");
+				SFX.sound.PlaySound (enemy.GetComponentInChildren<ShootEnemy>().shootaud[0]);
 				enemy.GetComponentInChildren<ShootEnemy> ().chaseTarget = coll.gameObject;
 				enemy.GetComponentInChildren<ShootEnemy> ().detected = true;
 			
@@ -40,10 +42,12 @@ public class Detection : MonoBehaviour {
 
 			print ("Player has exited");
 			if (enemy.GetComponentInChildren<EnemyKnockback> ()) {
+				SFX.sound.PlaySound (enemy.GetComponentInChildren<EnemyKnockback>().chaseraud[1]);
 				enemy.GetComponentInChildren<EnemyKnockback> ().detected = false;
 				enemy.GetComponentInChildren<EnemyKnockback> ().chaseTarget = null;
 			}else if (enemy.GetComponentInChildren<ShootEnemy> ()) {
 
+				SFX.sound.PlaySound (enemy.GetComponentInChildren<ShootEnemy>().shootaud[1]);
 				enemy.GetComponentInChildren<ShootEnemy> ().chaseTarget = null;
 				enemy.GetComponentInChildren<ShootEnemy> ().detected = false;
 

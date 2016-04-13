@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: 332e6a7bb8b1bf746bae779235a02afe
+timeCreated: 1460079265
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: polySurface593
+    100004: polySurface667
+    100006: rightTurn
+    100008: polySurface469
+    100010: polySurface629
+    100012: polySurface597
+    100014: polySurface668
+    100016: polySurface669
+    100018: polySurface700
+    100020: polySurface700 1
+    100022: polySurface701
+    100024: polySurface702
+    100026: polySurface703
+    100028: polySurface704
+    100030: polySurface705
+    100032: polySurface706
+    100034: polySurface707
+    100036: polySurface708
+    100038: polySurface709
+    100040: polySurface710
+    100042: polySurface711
+    100044: polySurface712
+    100046: polySurface713
+    100048: polySurface714
+    100050: polySurface715
+    100052: polySurface716
+    100054: polySurface717
+    100056: polySurface718
+    100058: polySurface719
+    100060: polySurface720
+    100062: polySurface721
+    100064: polySurface722
+    100066: polySurface723
+    100068: polySurface724
+    100070: polySurface725
+    100072: polySurface726
+    100074: polySurface727
+    100076: polySurface728
+    100078: polySurface729
+    100080: transform210
+    100082: transform211
+    100084: transform212
+    100086: transform213
+    100088: transform214
+    100090: transform215
+    100092: transform216
+    100094: transform217
+    100096: transform218
+    100098: transform219
+    100100: transform220
+    100102: transform221
+    100104: transform222
+    100106: transform223
+    100108: transform224
+    100110: transform225
+    100112: transform226
+    100114: transform227
+    100116: transform228
+    100118: transform229
+    100120: transform230
+    100122: transform231
+    100124: transform232
+    100126: transform233
+    100128: transform234
+    100130: transform235
+    100132: transform236
+    100134: transform237
+    100136: transform238
+    100138: transform239
+    100140: transform240
+    100142: transform241
+    100144: transform242
+    400000: //RootNode
+    400002: polySurface593
+    400004: polySurface667
+    400006: rightTurn
+    400008: polySurface469
+    400010: polySurface629
+    400012: polySurface597
+    400014: polySurface668
+    400016: polySurface669
+    400018: polySurface700
+    400020: polySurface700 1
+    400022: polySurface701
+    400024: polySurface702
+    400026: polySurface703
+    400028: polySurface704
+    400030: polySurface705
+    400032: polySurface706
+    400034: polySurface707
+    400036: polySurface708
+    400038: polySurface709
+    400040: polySurface710
+    400042: polySurface711
+    400044: polySurface712
+    400046: polySurface713
+    400048: polySurface714
+    400050: polySurface715
+    400052: polySurface716
+    400054: polySurface717
+    400056: polySurface718
+    400058: polySurface719
+    400060: polySurface720
+    400062: polySurface721
+    400064: polySurface722
+    400066: polySurface723
+    400068: polySurface724
+    400070: polySurface725
+    400072: polySurface726
+    400074: polySurface727
+    400076: polySurface728
+    400078: polySurface729
+    400080: transform210
+    400082: transform211
+    400084: transform212
+    400086: transform213
+    400088: transform214
+    400090: transform215
+    400092: transform216
+    400094: transform217
+    400096: transform218
+    400098: transform219
+    400100: transform220
+    400102: transform221
+    400104: transform222
+    400106: transform223
+    400108: transform224
+    400110: transform225
+    400112: transform226
+    400114: transform227
+    400116: transform228
+    400118: transform229
+    400120: transform230
+    400122: transform231
+    400124: transform232
+    400126: transform233
+    400128: transform234
+    400130: transform235
+    400132: transform236
+    400134: transform237
+    400136: transform238
+    400138: transform239
+    400140: transform240
+    400142: transform241
+    400144: transform242
+    2300000: polySurface593
+    2300002: polySurface667
+    2300004: polySurface629
+    2300006: polySurface700
+    3300000: polySurface593
+    3300002: polySurface667
+    3300004: polySurface629
+    3300006: polySurface700
+    4300000: polySurface593
+    4300002: polySurface667
+    4300004: polySurface629
+    4300006: polySurface700
+    6400000: polySurface593
+    6400002: polySurface700
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 140
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1704 @@
+fileFormatVersion: 2
+guid: 9713e2fca2b572c48a0b407ed1070259
+timeCreated: 1460481381
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: group
+    100004: joints:J_L_Ankle
+    100006: joints:J_L_Knee
+    100008: joints:J_L_Thigh
+    100010: joints:J_R_Ankle
+    100012: joints:J_R_Knee
+    100014: joints:J_R_Thigh
+    100016: joints:joint10
+    100018: joints:joint11
+    100020: joints:joint12
+    100022: joints:joint13
+    100024: joints:joint14
+    100026: joints:joint15
+    100028: joints:joint15 1
+    100030: joints:joint16
+    100032: joints:joint16 1
+    100034: joints:joint17
+    100036: joints:joint17 1
+    100038: joints:joint18
+    100040: joints:joint18 1
+    100042: joints:joint19
+    100044: joints:joint20
+    100046: joints:joint20 1
+    100048: joints:joint27
+    100050: joints:joint4
+    100052: joints:joint4 1
+    100054: joints:joint5
+    100056: joints:joint5 1
+    100058: joints:joint6
+    100060: joints:joint6 1
+    100062: joints:joint7
+    100064: joints:joint8
+    100066: joints:joint9
+    100068: PM3D_Merged_Extract11222
+    100070: PM3D_Merged_Extract11222_MeshPart0
+    100072: PM3D_Merged_Extract11222_MeshPart1
+    400000: //RootNode
+    400002: group
+    400004: joints:J_L_Ankle
+    400006: joints:J_L_Knee
+    400008: joints:J_L_Thigh
+    400010: joints:J_R_Ankle
+    400012: joints:J_R_Knee
+    400014: joints:J_R_Thigh
+    400016: joints:joint10
+    400018: joints:joint11
+    400020: joints:joint12
+    400022: joints:joint13
+    400024: joints:joint14
+    400026: joints:joint15
+    400028: joints:joint15 1
+    400030: joints:joint16
+    400032: joints:joint16 1
+    400034: joints:joint17
+    400036: joints:joint17 1
+    400038: joints:joint18
+    400040: joints:joint18 1
+    400042: joints:joint19
+    400044: joints:joint20
+    400046: joints:joint20 1
+    400048: joints:joint27
+    400050: joints:joint4
+    400052: joints:joint4 1
+    400054: joints:joint5
+    400056: joints:joint5 1
+    400058: joints:joint6
+    400060: joints:joint6 1
+    400062: joints:joint7
+    400064: joints:joint8
+    400066: joints:joint9
+    400068: PM3D_Merged_Extract11222
+    400070: PM3D_Merged_Extract11222_MeshPart0
+    400072: PM3D_Merged_Extract11222_MeshPart1
+    4300000: PM3D_Merged_Extract11222_MeshPart0
+    4300002: PM3D_Merged_Extract11222_MeshPart1
+    7400000: Idle
+    7400002: IdletoSkate
+    7400004: Skate
+    7400006: SkatetoIdle
+    7400008: Jump
+    7400010: Fall
+    7400012: Land
+    7400014: Dash
+    7400016: DashtoIdle
+    7400018: IdletoChannel
+    7400020: Channel
+    7400022: ChanneltoIdle
+    7400024: Powerup
+    7400026: PUptoIdle
+    9500000: //RootNode
+    13700000: PM3D_Merged_Extract11222_MeshPart0
+    13700002: PM3D_Merged_Extract11222_MeshPart1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: IdletoSkate
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Skate
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: SkatetoIdle
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Jump
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Fall
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Land
+      takeName: Take 001
+      firstFrame: 138
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Dash
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 153
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: DashtoIdle
+      takeName: Take 001
+      firstFrame: 153
+      lastFrame: 156
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: IdletoChannel
+      takeName: Take 001
+      firstFrame: 160
+      lastFrame: 165
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Channel
+      takeName: Take 001
+      firstFrame: 165
+      lastFrame: 185
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: ChanneltoIdle
+      takeName: Take 001
+      firstFrame: 185
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Powerup
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: PUptoIdle
+      takeName: Take 001
+      firstFrame: 210
+      lastFrame: 220
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: joints:joint7
+        weight: 1
+      - path: joints:joint7/joints:joint9
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint8/joints:joint11/joints:joint12
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint19/joints:joint20/joints:joint15/joints:joint16/joints:joint17/joints:joint18
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1
+        weight: 1
+      - path: joints:joint7/joints:joint9/joints:joint10/joints:joint27/joints:joint20
+          1/joints:joint15 1/joints:joint16 1/joints:joint17 1/joints:joint18 1
+        weight: 1
+      - path: joints:joint7/joints:joint13
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_L_Thigh/joints:J_L_Knee/joints:J_L_Ankle/joints:joint4/joints:joint5/joints:joint6
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:J_R_Thigh/joints:J_R_Knee/joints:J_R_Ankle/joints:joint4
+          1/joints:joint5 1/joints:joint6 1
+        weight: 1
+      - path: joints:joint7/joints:joint13/joints:joint14
+        weight: 1
+      - path: PM3D_Merged_Extract11222
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart0
+        weight: 1
+      - path: PM3D_Merged_Extract11222/PM3D_Merged_Extract11222_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 2
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

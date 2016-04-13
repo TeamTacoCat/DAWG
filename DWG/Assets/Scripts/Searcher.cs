@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Searcher : MonoBehaviour {
 
+	public AudioClip searcheraud;
 	public GameObject player;
 	public GameObject sigil;
 	[SerializeField]private float maxTime;
@@ -33,6 +34,7 @@ public class Searcher : MonoBehaviour {
 				GetComponent<Image> ().color = new Color (0, 0, 0);
 				yield return new WaitForSeconds (DistanceTime());
 				if(sigil && player){
+				SFX.sound.PlaySound (searcheraud);
 				GetComponent<Image> ().color = ColorDistance();
 				}
 				yield return new WaitForSeconds (.1f);

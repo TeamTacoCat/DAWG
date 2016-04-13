@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
 	public UIHandler.Match curMatch{ get; set; }
 
 	[SerializeField]private GameObject loadScreen;
+	public static float bgmVolume{ get; set; }
+	public static float sfxVolume{ get; set; }
+
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +36,9 @@ public class GameManager : MonoBehaviour {
 			DontDestroyOnLoad(this);
 			DontDestroyOnLoad (loadScreen);
 			Application.targetFrameRate = 60;
-			//curScene = SceneManager.GetActiveScene ().name;
+			curScene = SceneManager.GetActiveScene ().name;
+			bgmVolume = 1;
+			sfxVolume = 1;
 
 		}
 
@@ -59,8 +64,8 @@ public class GameManager : MonoBehaviour {
 
 	public static void LoadScene(string sceneName){
 
-		//SceneManager.LoadScene (sceneName);
-		Application.LoadLevel (sceneName);
+		SceneManager.LoadScene (sceneName);
+		//Application.LoadLevel (sceneName);
 		if (sceneName == "LevelLayout" || sceneName == "SinglePlayerLevel") {
 
 			for (int i = 0; i < points.Length; i++) {
@@ -115,7 +120,7 @@ public class GameManager : MonoBehaviour {
 		levelLoaded = false;
 		Time.timeScale = 1f;
 			
-		if (newMatch.MatchType != Application.loadedLevelName/*SceneManager.GetActiveScene ().name*/) {
+		if (newMatch.MatchType != /*Application.loadedLevelName*/SceneManager.GetActiveScene ().name) {
 			LoadScene (newMatch.MatchType);
 		} else {
 		
@@ -177,8 +182,8 @@ public class GameManager : MonoBehaviour {
 			
 		player.GetComponent<PlayerController> ().cam.GetComponent<PlayerCam> ().target = player.GetComponent<Transform>();
 
-		GameObject fuelTrn = GameObject.Find ("Canvas1/Gauge1/FuelBackground/Fuel");
-		GameObject fuelTxt = GameObject.Find ("Canvas1/Gauge1/Text");
+//		GameObject fuelTrn = GameObject.Find ("Canvas1/Gauge1/FuelBackground/Fuel");
+//		GameObject fuelTxt = GameObject.Find ("Canvas1/Gauge1/Text");
 		GameObject.Find ("Canvas1/MinimapArrow1").GetComponent<Arrow> ().player = player;
 
 		GameObject.Find ("Canvas1/SearchTracker1").GetComponent<Searcher> ().player = player;
@@ -255,8 +260,8 @@ public class GameManager : MonoBehaviour {
 					
 			player.GetComponent<PlayerController> ().cam.GetComponent<PlayerCam> ().target = player.GetComponent<Transform>();
 
-			GameObject fuelTrn = GameObject.Find (canvasObj.name+("/Gauge"+(i+1).ToString())+"/FuelBackground/Fuel");
-			GameObject fuelTxt = GameObject.Find (canvasObj.name+("/Gauge"+(i+1).ToString())+"/Text");
+//			GameObject fuelTrn = GameObject.Find (canvasObj.name+("/Gauge"+(i+1).ToString())+"/FuelBackground/Fuel");
+//			GameObject fuelTxt = GameObject.Find (canvasObj.name+("/Gauge"+(i+1).ToString())+"/Text");
 			GameObject.Find (canvasObj.name + ("/MinimapArrow" + (i + 1).ToString ())).GetComponent<Arrow> ().player = player;
 			print (GameObject.Find (canvasObj.name + ("/MinimapArrow" + (i + 1).ToString ())).GetComponent<Arrow> ().player.name);
 			GameObject.Find (canvasObj.name + ("/SearchTracker" + (i + 1).ToString ())).GetComponent<Searcher> ().player = player;
