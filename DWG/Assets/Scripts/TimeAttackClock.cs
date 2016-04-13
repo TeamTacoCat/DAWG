@@ -38,7 +38,7 @@ public class TimeAttackClock : MonoBehaviour {
 		//string seconds = (t % 60).ToString ("f0");
 		string milliseconds = (t % 60).ToString ("f2");
 
-		timerText.text = "Time Remaining: " + minutes + "." + milliseconds;
+		timerText.text = "Time Left: " + minutes + "." + milliseconds;
 		//timerText.text = String.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
 	}
 }

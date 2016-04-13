@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public AudioClip[] sigilaud = new AudioClip[6]; //size = 6
+
 	public bool grounded = true;
 
 	public GameObject sigil;
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour {
 
 	public void SetPowerUp(int pUp){
 		print ("Power up:" + pUp);
+		SFX.sound.PlaySound (sigilaud [4]);
 		powerUp = pUp;
 	}
 
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour {
 
 		else {
 
+			//powerUp = 6;
 			switch (powerUp) {
 			case 0:
 				this.GetComponent<PlayerController> ().SetMaxSpeed (mSpeed);
@@ -75,6 +79,15 @@ public class Player : MonoBehaviour {
 			case 5:
 				this.GetComponent<PlayerController> ().SpeedCutter ();
 				break;
+			case 6:
+				this.GetComponent<PlayerController> ().StartCoroutine ("Hex", 5);
+				break;
+			case 7:
+				this.GetComponent<PlayerController> ().StartCoroutine ("Hex", 6);
+				break;
+			case 8:
+				this.GetComponent<PlayerController> ().Oily ();
+				break;
 			default:
 				break;
 			}
@@ -86,6 +99,8 @@ public class Player : MonoBehaviour {
 	public IEnumerator FillProgBar(){
 
 		print ("Fill Progress started");
+		SFX.sound.PlaySound (sigilaud [0]);
+		SFX.sound.PlaySound (sigilaud [1]);
 
 		while (sigilProg < 100) {
 
@@ -99,12 +114,15 @@ public class Player : MonoBehaviour {
 
 		sigil.GetComponent<Sigil> ().Claim (teamNum);
 		GameManager.AddPoints (teamNum);
+		SFX.sound.PlaySound (sigilaud [2]);
+		SFX.sound.PlaySound (sigilaud [3]);
 
 	}
 
 	public IEnumerator SpellSlinger(){
 
 		print ("Fill Progress double speed");
+		SFX.sound.PlaySound (sigilaud [5]);
 
 		while (sigilProg < 100) {
 

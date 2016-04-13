@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SigilSpawn : MonoBehaviour {
 
+	public AudioClip loseaud;
 	private GameObject[] grids = new GameObject[9];
 	public GameObject minimapCanvas{ get; set; }
 	private int sigilsSpawned;
@@ -194,6 +195,7 @@ public class SigilSpawn : MonoBehaviour {
 			if (team == 7) {
 		
 				winObj.GetComponentInChildren<Text> ().text = "You lose!";
+				SFX.sound.PlaySound (loseaud);
 		
 			}
 

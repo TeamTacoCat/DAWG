@@ -19,6 +19,7 @@ public class MusicSingleton : MonoBehaviour {
 			DontDestroyOnLoad (gameObject);
 			mInstance = this.gameObject;
 			source = GetComponent<AudioSource> ();
+			source.volume = GameManager.bgmVolume;
 			if (source) {
 			
 				print ("Source referenced");
@@ -31,6 +32,12 @@ public class MusicSingleton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (source.volume != GameManager.bgmVolume) {
+		
+			source.volume = GameManager.bgmVolume;
+		
+		}
 	
 	}
 

@@ -17,6 +17,9 @@ public class UIHandler : MonoBehaviour {
 	[SerializeField]private GameObject button;
 	[SerializeField]private GameObject[] charSelection;
 	[SerializeField]private GameObject activeMenu;
+	[SerializeField]private GameObject optButton;
+	[SerializeField]private GameObject musicbutton;
+	[SerializeField]private GameObject soundbutton;
 	private Match match = new Match();
 	private int readyPlayers;
 	[SerializeField]private GameObject startButton;
@@ -28,7 +31,33 @@ public class UIHandler : MonoBehaviour {
 
 	private GameObject gManager;
 
+	[SerializeField] private GameObject fullscreenonimg;
+	[SerializeField] private GameObject smallscreenonimg;
+	[SerializeField] private GameObject medscreenonimg;
+	[SerializeField] private GameObject bigscreenonimg;
+	[SerializeField] private RectTransform musicbarimg;
+	[SerializeField] private RectTransform soundbarimg;
+	[SerializeField] private GameObject togglebtn;
 
+	private bool fullscreenActive;
+	private bool smallscreenActive;
+	private bool medscreenActive;
+	private bool bigscreenActive;
+	private int musicVol;
+	private int soundVol;
+	private int screenres = 0;
+	private bool musicActive;
+	private bool soundActive;
+	private float maxmusicXbar = 122.6f;
+	private float currentmusicXbar;
+	private float maxsoundXbar = 122.6f;
+	private float currentsoundXbar;
+
+	private bool howtotoggle;
+	[SerializeField] private GameObject howToScreen;
+	[SerializeField] private GameObject controlsScreen;
+
+	public AudioClip[] audclip;
 
 
 	// Use this for initialization
@@ -44,39 +73,91 @@ public class UIHandler : MonoBehaviour {
 
 		gManager = GameObject.Find ("GameManager");
 
+		fullscreenActive = true;
+		Screen.fullScreen = true;
+		smallscreenActive = false;
+		medscreenActive = false;
+		bigscreenActive = false;
+		musicVol = 1;
+		soundVol = 1;
+		musicActive = false;
+		soundActive = false;
 
+		currentmusicXbar = GameManager.bgmVolume * maxmusicXbar;
+
+		howtotoggle = true;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
+		if (fullscreenActive) {
+			fullscreenonimg.SetActive (true);
+		} else {
+			fullscreenonimg.SetActive (false);
+		}
+
+		if (smallscreenActive) {
+			smallscreenonimg.SetActive (true);
+		} else {
+			smallscreenonimg.SetActive (false);
+		}
+
+		if (medscreenActive) {
+			medscreenonimg.SetActive (true);
+		} else {
+			medscreenonimg.SetActive (false);
+		}
+
+		if (bigscreenActive) {
+			bigscreenonimg.SetActive (true);
+		} else {
+			bigscreenonimg.SetActive (false);
+		}
+
+
+
 		switch(activeMenu.name){
 
+		case "MainMenu":
+			//probably doubling up the sound... not sure how to tighten the restrictions on this!
+			if (Input.GetAxis ("Vertical1") != 0 || Input.GetAxis ("Vertical2") != 0 || Input.GetAxis ("Vertical3") != 0 || Input.GetAxis ("Vertical4") != 0) {
+				SFX.sound.PlaySound (audclip [2]);
+			}
+
+			break;
+
 		case "MultMenu":
+			
 			print ("Multi Menu active");
 			if (Input.GetButtonDown ("Jump1")) {
 				print ("player 1 active");
 				SelectChar (0);
+				SFX.sound.PlaySound(audclip[0]);
 
 			}
 			if (Input.GetButtonDown ("Jump2")) {
 				print ("Player 2 active");
 				SelectChar (1);
+				SFX.sound.PlaySound(audclip[0]);
 
 			}
 			if (Input.GetButtonDown ("Jump3")) {
 				
 				SelectChar (2);
+				SFX.sound.PlaySound(audclip[0]);
 
 			}
 			if (Input.GetButtonDown ("Jump4")) {
 
 				SelectChar (3);
+				SFX.sound.PlaySound(audclip[0]);
 
 			}
 			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
 				print ("Go back");
 				SwitchMenu ("MainMenu");
+				SFX.sound.PlaySound(audclip[1]);
 			}
 
 			////////////////PLAYER ONE////////////////////////////////////
@@ -107,6 +188,10 @@ public class UIHandler : MonoBehaviour {
 
 						charSelection [0].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [0]);
 					}
+
+					if (Input.GetAxis ("Horizontal1") != 0) {
+						SFX.sound.PlaySound (audclip [2]);
+					}
 				}
 			}
 
@@ -135,6 +220,10 @@ public class UIHandler : MonoBehaviour {
 						}
 
 						charSelection [1].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [1]);
+					}
+
+					if (Input.GetAxis ("Horizontal2") != 0) {
+						SFX.sound.PlaySound (audclip [2]);
 					}
 				}
 			}
@@ -166,6 +255,10 @@ public class UIHandler : MonoBehaviour {
 						charSelection [2].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [2]);
 					}
 				}
+
+				if (Input.GetAxis ("Horizontal3") != 0) {
+					SFX.sound.PlaySound (audclip [2]);
+				}
 			}
 
 			////////////////PLAYER FOUR////////////////////////////////////
@@ -194,6 +287,10 @@ public class UIHandler : MonoBehaviour {
 
 						charSelection [3].GetComponent<CharSelect> ().imageSwitch (match.PlayerType [3]);
 					}
+				}
+
+				if (Input.GetAxis ("Horizontal4") != 0) {
+					SFX.sound.PlaySound (audclip [2]);
 				}
 			}
 			if (Input.GetAxis ("Horizontal1") == 0 /*<= 0.2f && Input.GetAxis ("Horizontal1") >= -0.2f*/) {
@@ -248,14 +345,92 @@ public class UIHandler : MonoBehaviour {
 			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
 			
 				SwitchMenu ("MainMenu");
-			
+				SFX.sound.PlaySound (audclip [1]);
+							
 			}
+
+			if (Input.GetButtonDown ("Jump1") || Input.GetButtonDown ("Jump2") || Input.GetButtonDown ("Jump3") || Input.GetButtonDown ("Jump4")) {
+
+				SFX.sound.PlaySound (audclip [0]);
+
+			}
+
 			break;
 		case "OptionsMenu":
+
+			if (Input.GetButtonDown ("Jump1") || Input.GetButtonDown ("Jump2") || Input.GetButtonDown ("Jump3") || Input.GetButtonDown ("Jump4")) {
+
+				SFX.sound.PlaySound (audclip [0]);
+
+			}
+
 			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
 
 				SwitchMenu ("MainMenu");
+				SFX.sound.PlaySound (audclip [1]);
 
+			}
+
+			//probably doubling up the sound... not sure how to tighten the restrictions on this!
+			if (Input.GetAxis ("Vertical1") != 0 || Input.GetAxis ("Vertical2") != 0 || Input.GetAxis ("Vertical3") != 0 || Input.GetAxis ("Vertical4") != 0) {
+				SFX.sound.PlaySound (audclip [2]);
+			}
+
+			if (events.currentSelectedGameObject == musicbutton) {
+				if (Input.GetAxis ("Horizontal1") > 0 || Input.GetAxis ("Horizontal2") > 0 || Input.GetAxis ("Horizontal3") > 0 || Input.GetAxis ("Horizontal4") > 0) {
+					
+					if (currentmusicXbar <= maxmusicXbar) {
+						currentmusicXbar += 1;
+						musicbarimg.sizeDelta = new Vector2(currentmusicXbar, 17.7f);
+						GameManager.bgmVolume = (currentmusicXbar / maxmusicXbar);
+						print ("Current Music Volume: " + GameManager.bgmVolume);
+						SFX.sound.PlaySound (audclip [2]);
+					}
+
+				} else if (Input.GetAxis ("Horizontal1") < 0 || Input.GetAxis ("Horizontal2") < 0 || Input.GetAxis ("Horizontal3") < 0 || Input.GetAxis ("Horizontal4") < 0) {
+					
+					if (currentmusicXbar >= 0) {
+						currentmusicXbar -= 1;
+						musicbarimg.sizeDelta = new Vector2(currentmusicXbar, 17.7f);
+						GameManager.bgmVolume = (currentmusicXbar / maxmusicXbar); 
+						print ("Current Music Volume: " + GameManager.bgmVolume);
+						SFX.sound.PlaySound (audclip [2]);
+					}
+				}
+			} else if (events.currentSelectedGameObject == soundbutton) {
+				if (Input.GetAxis ("Horizontal1") > 0 || Input.GetAxis ("Horizontal2") > 0 || Input.GetAxis ("Horizontal3") > 0 || Input.GetAxis ("Horizontal4") > 0) {
+
+					if (currentsoundXbar <= maxsoundXbar) {
+						currentsoundXbar += 1;
+						soundbarimg.sizeDelta = new Vector2(currentsoundXbar, 17.7f);
+						GameManager.sfxVolume = (currentsoundXbar / maxsoundXbar);
+						print ("Current Sound Volume: " + GameManager.sfxVolume);
+						SFX.sound.PlaySound (audclip [2]);
+					}
+
+				} else if (Input.GetAxis ("Horizontal1") < 0 || Input.GetAxis ("Horizontal2") < 0 || Input.GetAxis ("Horizontal3") < 0 || Input.GetAxis ("Horizontal4") < 0) {
+
+					if (currentsoundXbar >= 0) {
+						currentsoundXbar -= 1;
+						soundbarimg.sizeDelta = new Vector2(currentsoundXbar, 17.7f);
+						GameManager.sfxVolume = (currentsoundXbar / maxsoundXbar); 
+						print ("Current Sound Volume: " + GameManager.sfxVolume);
+						SFX.sound.PlaySound (audclip [2]);
+					}
+				}
+			}
+			break;
+
+		case "HowtoMenu":
+			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
+
+				SwitchMenu ("OptionsMenu");
+				SFX.sound.PlaySound (audclip [1]);
+
+			}
+
+			if (Input.GetButtonDown ("Jump1") || Input.GetButtonDown ("Jump2") || Input.GetButtonDown ("Jump3") || Input.GetButtonDown ("Jump4")) {
+				SFX.sound.PlaySound (audclip [0]);
 			}
 			break;
 		default:
@@ -310,7 +485,14 @@ public class UIHandler : MonoBehaviour {
 		case "OptionsMenu":
 			menus [3].SetActive (true);
 			activeMenu = menus [3];
+			events.SetSelectedGameObject (optButton, null);
 			
+			break;
+
+		case "HowtoMenu":
+			menus [4].SetActive (true);
+			activeMenu = menus [4];
+			events.SetSelectedGameObject (togglebtn, null);
 			break;
 		default:
 			break;
@@ -379,6 +561,79 @@ public class UIHandler : MonoBehaviour {
 			return false;
 		}
 	
+	}
+
+	public void options(string optbtn){
+
+
+
+		switch (optbtn) {
+
+		case "Fullscreenbtn":
+
+			if (fullscreenActive) {
+				fullscreenActive = false;
+			} else {
+				fullscreenActive = true;
+				Screen.SetResolution (Screen.width, Screen.height, true);
+				smallscreenActive = false;
+				medscreenActive = false;
+				bigscreenActive = false;
+			}
+
+			break;
+		
+		
+		case "Screensizebtn":
+
+			if (fullscreenActive == false) {
+				if (screenres == 0) {
+					screenres++;
+					bigscreenActive = false;
+					smallscreenActive = true;
+					Screen.SetResolution (1024, 576, false);
+					print ("Small Screen");
+				} else if (screenres == 1) {
+					screenres++;
+					smallscreenActive = false;
+					medscreenActive = true;
+					Screen.SetResolution (1280, 720, false);
+					print ("Medium Screen");
+				} else if (screenres == 2) {
+					screenres = 0;
+					medscreenActive = false;
+					bigscreenActive = true;
+					Screen.SetResolution (1920, 1080, false);
+					print ("Big screen");
+				}
+			}
+
+			break;
+		
+		case "Howtobtn":
+			print ("Howto pressed");
+
+			break;
+		
+		
+		default:
+			break;
+		}
+	
+	}
+
+	public void toggleHowTo(){
+		
+		if (howtotoggle) {
+			howtotoggle = false;
+			controlsScreen.SetActive (true);
+			howToScreen.SetActive (false);
+		} else {
+			howtotoggle = true;
+			controlsScreen.SetActive (false);
+			howToScreen.SetActive (true);
+		}
+			
 	}
 
 }

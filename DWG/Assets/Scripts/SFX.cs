@@ -42,6 +42,7 @@ public class SFX : MonoBehaviour {
 
 		AudioSource newSource = gameObject.AddComponent<AudioSource>();
 		newSource.clip = clip;
+		newSource.volume = GameManager.sfxVolume;
 		newSource.Play ();
 		StartCoroutine ("EndClip", newSource);
 

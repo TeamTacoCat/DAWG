@@ -3,12 +3,14 @@ using System.Collections;
 
 public class ShootEnemy : MonoBehaviour {
 
-	[SerializeField]private GameObject detector;
+	public AudioClip[] shootaud = new AudioClip[3]; //size = 3
+	public GameObject detector{ get; set; }
 	public bool detected=false;
 	public GameObject chaseTarget;
 	public float delay = 1.0f;
 	public GameObject e_Bullet;
 	public bool canShoot;
+	public GameObject head;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +26,7 @@ public class ShootEnemy : MonoBehaviour {
 		if (detected && chaseTarget != null && canShoot == false) {
 
 			print ("Begin shooting");
+
 			canShoot = true;
 			Shoot ();
 		
@@ -39,10 +42,13 @@ public class ShootEnemy : MonoBehaviour {
 	{
 		if (canShoot) {
 
+			head.transform.LookAt (chaseTarget.transform.position);
 			print ("Shoot activated");
 			GameObject instance;
 			instance = (GameObject)Instantiate (e_Bullet, transform.position, transform.rotation);
+			SFX.sound.PlaySound (shootaud [2]);
 			instance.transform.LookAt (chaseTarget.transform.position);
+			instance.GetComponent<bulletImpact> ().pUp = 5;
 			instance.GetComponent<bulletImpact> ().target = chaseTarget;
 			Invoke ("Shoot", delay);
 
