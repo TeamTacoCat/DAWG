@@ -5,6 +5,8 @@ public class OilSlick : MonoBehaviour {
 
 	public int teamNumber { get; set; }
 
+	[SerializeField] private AudioClip oilaud;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine ("OilTimer");
@@ -16,6 +18,9 @@ public class OilSlick : MonoBehaviour {
 	void OnTriggerEnter (Collider coll) {
 		if (coll.gameObject.tag == "Player") {
 			if (coll.gameObject.GetComponent<Player> ().teamNum != teamNumber) {
+
+				SFX.sound.PlaySound (oilaud);
+
 				coll.gameObject.GetComponent<PlayerController> ().slicked = true;
 				coll.gameObject.GetComponent<PlayerController> ().StartCoroutine ("NoMovementTimer");
 				StartCoroutine ("RandomMovement", coll.gameObject);

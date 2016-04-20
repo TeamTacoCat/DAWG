@@ -29,7 +29,6 @@ public class EnemyKnockback : MonoBehaviour {
 		
 		} else if (parObj.transform.position != detector.transform.position) {
 		
-			SFX.sound.PlaySound (chaseraud [1]);
 			parObj.transform.position = Vector3.MoveTowards (parObj.transform.position, detector.transform.position, speed);
 			parObj.transform.LookAt (new Vector3 (detector.transform.position.x, transform.position.y, detector.transform.position.z));
 			transform.parent.gameObject.GetComponentInChildren<Animator> ().SetBool ("Walk", true);

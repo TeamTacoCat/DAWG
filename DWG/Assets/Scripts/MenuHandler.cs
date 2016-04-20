@@ -33,6 +33,24 @@ public class MenuHandler : MonoBehaviour
 
 		}
 
+		if (paused) {
+			if (Input.GetAxis ("Vertical1") != 0 || Input.GetAxis ("Vertical2") != 0 || Input.GetAxis ("Vertical3") != 0 || Input.GetAxis ("Vertical4") != 0) {
+				SFX.sound.PlaySound (gamemenuaud [1]);
+			}
+			if (Input.GetButtonDown ("Jump1") || Input.GetButtonDown ("Jump2") || Input.GetButtonDown ("Jump3") || Input.GetButtonDown ("Jump4") || Input.GetButtonDown ("Start")) {
+				SFX.sound.PlaySound (gamemenuaud [0]);
+			}
+		} 
+
+		if (matchEndMenu.activeSelf) {
+			if (Input.GetAxis ("Vertical1") != 0 || Input.GetAxis ("Vertical2") != 0 || Input.GetAxis ("Vertical3") != 0 || Input.GetAxis ("Vertical4") != 0) {
+				SFX.sound.PlaySound (gamemenuaud [1]);
+			}
+			if (Input.GetButtonDown ("Jump1") || Input.GetButtonDown ("Jump2") || Input.GetButtonDown ("Jump3") || Input.GetButtonDown ("Jump4")) {
+				SFX.sound.PlaySound (gamemenuaud [0]);
+			}
+		}
+
 	}
 
 	public void pausePressed ()
@@ -47,12 +65,6 @@ public class MenuHandler : MonoBehaviour
 				pauseMenu.SetActive (true);
 				Time.timeScale = 0;
 				events.SetSelectedGameObject (defaultPauseButton);
-				if (Input.GetAxis ("Vertical1") != 0 || Input.GetAxis ("Vertical2") != 0 || Input.GetAxis ("Vertical3") != 0 || Input.GetAxis ("Vertical4") != 0) {
-					SFX.sound.PlaySound (gamemenuaud [1]);
-				}
-				if (Input.GetButtonDown ("Jump1") || Input.GetButtonDown ("Jump2") || Input.GetButtonDown ("Jump3") || Input.GetButtonDown ("Jump4") || Input.GetButtonDown ("Start")) {
-					SFX.sound.PlaySound (gamemenuaud [0]);
-				}
 
 			}
 			if (!paused) {
@@ -97,12 +109,6 @@ public class MenuHandler : MonoBehaviour
 		matchEndMenu.SetActive (true);
 		Time.timeScale = 0;
 		events.SetSelectedGameObject (defaultMatchEndButton);
-		if (Input.GetAxis ("Vertical1") != 0 || Input.GetAxis ("Vertical2") != 0 || Input.GetAxis ("Vertical3") != 0 || Input.GetAxis ("Vertical4") != 0) {
-			SFX.sound.PlaySound (gamemenuaud [1]);
-		}
-		if (Input.GetButtonDown ("Jump1") || Input.GetButtonDown ("Jump2") || Input.GetButtonDown ("Jump3") || Input.GetButtonDown ("Jump4")) {
-			SFX.sound.PlaySound (gamemenuaud [0]);
-		}
 
 	}
 }

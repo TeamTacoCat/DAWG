@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-	public AudioClip[] playeraud = new AudioClip[17]; //size = 17
+	public AudioClip[] playeraud = new AudioClip[23]; //size = 23
 
 	public float maxSpeed{ get; set; }
 	[SerializeField]private float accel;
@@ -222,6 +222,8 @@ public class PlayerController : MonoBehaviour
 
 	public void resetMaxSpeed(float mSpeed){
 		maxSpeed = 30;
+
+		SFX.sound.PlaySound (playeraud [13]);
 	}
 
 	//This handles the fuel bar on the HUD. 
@@ -475,9 +477,9 @@ public class PlayerController : MonoBehaviour
 		//Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position, Color.red, 5f);
 		//hit = Physics.Raycast (transform.position, -Vector3.up, out hit, hexMask);
 
-		GameObject obj = transform.Find("HexColl"+playerNum.ToString()).gameObject;
-		print (obj.name);
-		obj.layer = LayerMask.NameToLayer ("Ignore Raycast");
+		//GameObject obj = transform.Find("HexColl"+playerNum.ToString()).gameObject;
+		//print (obj.name);
+		//obj.layer = LayerMask.NameToLayer ("Ignore Raycast");
 //		if(Physics.RaycastAll(ray, out hit){
 //
 //			print("
@@ -487,7 +489,14 @@ public class PlayerController : MonoBehaviour
 		if(pUp == 1 || pUp == 2 || pUp == 3 || pUp == 4){
 			instance = (GameObject)Instantiate (bullet, this.transform.position, this.transform.rotation);
 			instance.GetComponent<bulletImpact> ().pUp = pUp;
-			Physics.IgnoreCollision (instance.GetComponent<Collider> (), this.GetComponent<Collider> ());
+			instance.GetComponent<bulletImpact> ().speed = 3f;
+			instance.GetComponent<bulletImpact> ().player = this.gameObject;
+			//Physics.IgnoreCollision (instance.GetComponent<Collider> (), this.GetComponent<Collider> ());
+			//Physics.IgnoreCollision (GetComponentInChildren<GroundCheck> ().gameObject.GetComponent<Collider> (), instance.GetComponent<Collider> ());
+			//instance.layer = LayerMask.NameToLayer ("Oil");
+			SFX.sound.PlaySound(playeraud[17]);
+			SFX.sound.PlaySound (playeraud [18]);
+
 			//Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position, Color.red, 5f);
 			//Debug.DrawRay (transform.position, hit.collider.transform.position, Color.black, 50f);
 //			if (hit.collider.gameObject.tag == "Player") {
@@ -495,9 +504,35 @@ public class PlayerController : MonoBehaviour
 //				instance.GetComponent<bulletImpact> ().target = hit.collider.gameObject.transform.parent.gameObject;
 //			}
 		}else if (pUp == 5 || pUp == 6) {
-			instance = (GameObject)Instantiate (bullet, new Vector3(transform.position.x, transform.position.y+.7f, transform.position.z), cam.transform.rotation);
-			instance.GetComponent<bulletImpact> ().pUp = pUp;
-			Physics.IgnoreCollision (instance.GetComponent<Collider> (), this.GetComponent<Collider> ());
+			print ("Bullet GO!");
+			if (pUp == 5) {
+				SFX.sound.PlaySound (playeraud [20]);
+			}
+			if (pUp == 6) {
+				SFX.sound.PlaySound (playeraud [22]);
+			}
+			for (int i = 0; i < 20; i++) {
+				instance = (GameObject)Instantiate (bullet, new Vector3 (transform.position.x, transform.position.y + .7f, transform.position.z), cam.transform.rotation);/*Quaternion.Euler(new Vector3(cam.transform.rotation.x+Random.Range(-20,21), cam.transform.rotation.y+Random.Range(-20,21),cam.transform.rotation.z+Random.Range(-20,21))))*/
+				instance.GetComponent<bulletImpact> ().pUp = pUp;
+				instance.GetComponent<bulletImpact> ().player = this.gameObject;
+				Physics.IgnoreCollision (instance.GetComponent<Collider> (), this.GetComponent<Collider> ());
+
+				if (pUp == 5) {
+					SFX.sound.PlaySound (playeraud [19]);
+
+				} else if (pUp == 6) {
+					SFX.sound.PlaySound (playeraud [21]);
+
+				}
+
+				yield return new WaitForSeconds (.1f);
+				if (instance) {
+					instance.GetComponent<bulletImpact> ().speed = 3f;
+					instance.transform.localScale = new Vector3 (2, 2, 5);
+					instance.GetComponent<TrailRenderer> ().startWidth = 2f;
+				}
+			}
+
 			//print ("found an object - distant: " + hit.distance);
 			//print (hit.collider.gameObject.name);
 			//Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position, Color.red, 5f);
@@ -513,7 +548,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds (.1f);
-		obj.layer = LayerMask.NameToLayer ("Hex");
+		//obj.layer = LayerMask.NameToLayer ("Hex");
 	}
 
 }
