@@ -22,6 +22,9 @@ public class SigilSpawn : MonoBehaviour {
 
 	private List<int> gridsDone = new List<int>();
 
+	public GameObject[] zones;
+	private int curZone;
+
 	public bool starter = false;
 
 	public TimeAttackClock timer{get; set;}
@@ -39,6 +42,15 @@ public class SigilSpawn : MonoBehaviour {
 		
 			grids [i] = GameObject.Find ("GridLayout" + "/" + (i+1).ToString ());
 		
+		}
+
+
+		zones = new GameObject[9];
+
+		for (int i = 0; i < zones.Length; i++) {
+
+			zones [i] = GameObject.Find ("Environment" + "/" + "Zone"+(i+1).ToString ());
+
 		}
 	
 	}
@@ -221,10 +233,17 @@ public class SigilSpawn : MonoBehaviour {
 	void SpawnSigil(int gridNumber){
 
 		starter = true;
+		curZone = gridNumber;
 
 		Transform[] gridArray = grids [gridNumber-1].GetComponentsInChildren<Transform> ();
 
 		print ("Grid Number" + gridNumber);
+
+		foreach (Transform g in gridArray) {
+		
+			print (g.gameObject.name);
+		
+		}
 
 		curSigil = (GameObject)Instantiate (sigil, gridArray[(int)Random.Range (0, gridArray.Length)].position, Quaternion.Euler (0, 0, 0));
 		curSigil.GetComponent<Sigil> ().grid = gridNumber;
@@ -262,15 +281,19 @@ public class SigilSpawn : MonoBehaviour {
 
 		case 1:
 			claimedObj.GetComponent<Image> ().color = new Color (1, 0, 0, .4f);
+			zones [curZone - 1].GetComponent<ChangeArea> ().ChangeTo (new Color (1, 0, 0, .4f));
 			break;
 		case 2:
 			claimedObj.GetComponent<Image> ().color = new Color (0, 0, 1, .4f);
+			zones [curZone - 1].GetComponent<ChangeArea> ().ChangeTo (new Color (0, 0, 1, .4f));
 			break;
 		case 3:
 			claimedObj.GetComponent<Image> ().color = new Color (0, 1, 0, .4f);
+			zones [curZone - 1].GetComponent<ChangeArea> ().ChangeTo (new Color (0, 1, 0, .4f));
 			break;
 		case 4:
 			claimedObj.GetComponent<Image> ().color = new Color (1, 1, 0, .4f);
+			zones [curZone - 1].GetComponent<ChangeArea> ().ChangeTo (new Color (1, 1, 0, .4f));
 			break;
 		default:
 			break;
