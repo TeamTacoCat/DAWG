@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
 			DontDestroyOnLoad(this);
 			DontDestroyOnLoad (loadScreen);
 			Application.targetFrameRate = 60;
-			curScene = SceneManager.GetActiveScene ().name;
+			//curScene = SceneManager.GetActiveScene ().name;
 			bgmVolume = 1;
 			sfxVolume = 1;
 
@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour {
 
 	public static void LoadScene(string sceneName){
 
-		SceneManager.LoadScene (sceneName);
-		//Application.LoadLevel (sceneName);
+		//SceneManager.LoadScene (sceneName);
+		Application.LoadLevel (sceneName);
 		if (sceneName == "LevelLayout" || sceneName == "SinglePlayerLevel") {
 
 			for (int i = 0; i < points.Length; i++) {
@@ -120,7 +120,10 @@ public class GameManager : MonoBehaviour {
 		levelLoaded = false;
 		Time.timeScale = 1f;
 			
-		if (newMatch.MatchType != /*Application.loadedLevelName*/SceneManager.GetActiveScene ().name) {
+		if (newMatch.MatchType != 
+		    Application.loadedLevelName
+		    //SceneManager.GetActiveScene ().name
+		    ) {
 			LoadScene (newMatch.MatchType);
 		} else {
 		
