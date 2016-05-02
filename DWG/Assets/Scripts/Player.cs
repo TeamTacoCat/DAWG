@@ -61,7 +61,7 @@ public class Player : MonoBehaviour {
 
 		else {
 
-			//powerUp = 6;
+			//powerUp = Random.Range(6, 9);
 			switch (powerUp) {
 			case 0:
 				this.GetComponent<PlayerController> ().SetMaxSpeed (mSpeed);
@@ -122,6 +122,7 @@ public class Player : MonoBehaviour {
 	public IEnumerator SpellSlinger(){
 
 		print ("Fill Progress double speed");
+		SFX.sound.PlaySound (sigilaud [0]);
 		SFX.sound.PlaySound (sigilaud [5]);
 
 		while (sigilProg < 100) {
@@ -133,6 +134,10 @@ public class Player : MonoBehaviour {
 
 		sigil.GetComponent<Sigil> ().Claim (teamNum);
 		GameManager.AddPoints (teamNum);
+
+		SFX.sound.PlaySound (sigilaud [2]);
+		SFX.sound.PlaySound (sigilaud [3]);
+
 
 		powerUp = -1;
 	}

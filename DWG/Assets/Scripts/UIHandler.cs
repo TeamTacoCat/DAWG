@@ -573,12 +573,35 @@ public class UIHandler : MonoBehaviour {
 
 			if (fullscreenActive) {
 				fullscreenActive = false;
+				Screen.SetResolution (1280, 720, false);
 			} else {
 				fullscreenActive = true;
-				Screen.SetResolution (Screen.width, Screen.height, true);
-				smallscreenActive = false;
-				medscreenActive = false;
-				bigscreenActive = false;
+				switch (screenres) {
+
+				case 0:
+					bigscreenActive = false;
+					smallscreenActive = true;
+					Screen.SetResolution (1024, 576, true);
+					print ("Small Screen");
+					break;
+				case 1:
+					smallscreenActive = false;
+					medscreenActive = true;
+					Screen.SetResolution (1280, 720, true);
+					print ("Medium Screen");
+					break;
+				case 2:
+					medscreenActive = false;
+					bigscreenActive = true;
+					Screen.SetResolution (1920, 1080, true);
+					print ("Big screen");
+					break;
+
+				}
+				//Screen.SetResolution (Screen.width, Screen.height, true);
+				//smallscreenActive = false;
+				//medscreenActive = false;
+				//bigscreenActive = false;
 			}
 
 			break;
@@ -606,6 +629,29 @@ public class UIHandler : MonoBehaviour {
 					Screen.SetResolution (1920, 1080, false);
 					print ("Big screen");
 				}
+			} else {
+			
+				if (screenres == 0) {
+					screenres++;
+					bigscreenActive = false;
+					smallscreenActive = true;
+					Screen.SetResolution (1024, 576, true);
+					print ("Small Screen");
+				} else if (screenres == 1) {
+					screenres++;
+					smallscreenActive = false;
+					medscreenActive = true;
+					Screen.SetResolution (1280, 720, true);
+					print ("Medium Screen");
+				} else if (screenres == 2) {
+					screenres = 0;
+					medscreenActive = false;
+					bigscreenActive = true;
+					Screen.SetResolution (1920, 1080, true);
+					print ("Big screen");
+				}
+
+
 			}
 
 			break;
