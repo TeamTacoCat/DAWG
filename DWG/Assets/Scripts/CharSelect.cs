@@ -29,7 +29,11 @@ public class CharSelect : MonoBehaviour {
 			if (value == true) {
 
 				GetComponent<Image> ().color = Color.red;
+				charselect.GetComponent<Image> ().sprite = redselect;
 				charselect.SetActive (true);
+			} else {
+				GetComponent<Image>().color = Color.white;
+				charselect.SetActive (false);
 			}
 
 			playerActive = value;
@@ -47,7 +51,6 @@ public class CharSelect : MonoBehaviour {
 
 			if (value == true) {
 			
-				GetComponent<Image> ().color = Color.magenta;
 				charselect.SetActive (false);
 				charchosen.SetActive (true);
 				if (charselect.GetComponent<Image> ().sprite == redselect) {
@@ -61,6 +64,22 @@ public class CharSelect : MonoBehaviour {
 				}
 
 
+			}
+
+			if (value == false) {
+				if (playerReady == true) {
+					charselect.SetActive (true);
+					charchosen.SetActive (false);
+					if (charchosen.GetComponent<Image> ().sprite == redchosen) {
+						charselect.GetComponent<Image> ().sprite = redselect;
+					} else if (charchosen.GetComponent<Image> ().sprite == bluechosen) {
+						charselect.GetComponent<Image> ().sprite = blueselect;
+					} else if (charchosen.GetComponent<Image> ().sprite == greenchosen) {
+						charselect.GetComponent<Image> ().sprite = greenselect;
+					} else if (charchosen.GetComponent<Image> ().sprite == yellowchosen) {
+						charselect.GetComponent<Image> ().sprite = yellowselect;
+					}
+				}
 			}
 
 			playerReady = value;

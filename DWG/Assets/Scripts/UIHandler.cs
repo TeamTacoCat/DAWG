@@ -132,8 +132,8 @@ public class UIHandler : MonoBehaviour {
 			print ("Multi Menu active");
 			if (Input.GetButtonDown ("Jump1")) {
 				print ("player 1 active");
-				SelectChar (0);
-				SFX.sound.PlaySound(audclip[0]);
+					SelectChar (0);
+					SFX.sound.PlaySound(audclip[0]);
 
 			}
 			if (Input.GetButtonDown ("Jump2")) {
@@ -154,10 +154,129 @@ public class UIHandler : MonoBehaviour {
 				SFX.sound.PlaySound(audclip[0]);
 
 			}
-			if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
+			/*if (Input.GetButtonDown ("Dash1") || Input.GetButtonDown ("Dash2") || Input.GetButtonDown ("Dash3") || Input.GetButtonDown ("Dash4")) {
 				print ("Go back");
 				SwitchMenu ("MainMenu");
 				SFX.sound.PlaySound(audclip[1]);
+			}*/
+			if (Input.GetButtonDown ("Dash1")){
+				if (charSelection [0].GetComponent<CharSelect> ().PlayerReady) {
+					charSelection [0].GetComponent<CharSelect> ().PlayerReady = false;
+					readyPlayers--;
+					startButton.SetActive (false);
+
+				} else if (charSelection [0].GetComponent<CharSelect> ().PlayerActive) {
+					charSelection [0].GetComponent<CharSelect> ().PlayerActive = false;
+					match.NumPlayers--;
+					match.PlayerType [0] = 0;
+											
+						if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
+							if (teamCheck ()) {
+								startButton.SetActive (true);
+							}
+						}
+				} else {
+					SwitchMenu ("MainMenu");
+					SFX.sound.PlaySound (audclip [1]);
+					charSelection [0].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [0].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerReady = false;
+				}
+			}
+
+			if (Input.GetButtonDown ("Dash2")){
+				if (charSelection [1].GetComponent<CharSelect> ().PlayerReady) {
+					charSelection [1].GetComponent<CharSelect> ().PlayerReady = false;
+					readyPlayers--;
+					startButton.SetActive (false);
+
+				} else if (charSelection [1].GetComponent<CharSelect> ().PlayerActive) {
+					charSelection [1].GetComponent<CharSelect> ().PlayerActive = false;
+					match.NumPlayers--;
+					match.PlayerType [1] = 0;
+
+					if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
+						if (teamCheck ()) {
+							startButton.SetActive (true);
+						}
+					}
+				} else {
+					SwitchMenu ("MainMenu");
+					SFX.sound.PlaySound (audclip [1]);
+					charSelection [0].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [0].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerReady = false;
+				}
+			}
+
+			if (Input.GetButtonDown ("Dash3")){
+				if (charSelection [2].GetComponent<CharSelect> ().PlayerReady) {
+					charSelection [2].GetComponent<CharSelect> ().PlayerReady = false;
+					readyPlayers--;
+					startButton.SetActive (false);
+
+				} else if (charSelection [2].GetComponent<CharSelect> ().PlayerActive) {
+					charSelection [2].GetComponent<CharSelect> ().PlayerActive = false;
+					match.NumPlayers--;
+					match.PlayerType [2] = 0;
+
+					if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
+						if (teamCheck ()) {
+							startButton.SetActive (true);
+						}
+					}
+				} else {
+					SwitchMenu ("MainMenu");
+					SFX.sound.PlaySound (audclip [1]);
+					charSelection [0].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [0].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerReady = false;
+				}
+			}
+
+			if (Input.GetButtonDown ("Dash4")){
+				if (charSelection [3].GetComponent<CharSelect> ().PlayerReady) {
+					charSelection [3].GetComponent<CharSelect> ().PlayerReady = false;
+					readyPlayers--;
+					startButton.SetActive (false);
+
+				} else if (charSelection [3].GetComponent<CharSelect> ().PlayerActive) {
+					charSelection [3].GetComponent<CharSelect> ().PlayerActive = false;
+					match.NumPlayers--;
+					match.PlayerType [3] = 0;
+
+					if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
+						if (teamCheck ()) {
+							startButton.SetActive (true);
+						}
+					}
+				} else {
+					SwitchMenu ("MainMenu");
+					SFX.sound.PlaySound (audclip [1]);
+					charSelection [0].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerActive = false;
+					charSelection [0].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [1].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [2].GetComponent<CharSelect> ().PlayerReady = false;
+					charSelection [3].GetComponent<CharSelect> ().PlayerReady = false;
+				}
 			}
 
 			////////////////PLAYER ONE////////////////////////////////////
@@ -332,12 +451,12 @@ public class UIHandler : MonoBehaviour {
 			}
 			if (startButton.activeSelf) {
 
-				if (Input.GetButtonDown ("Start")) {
 
+				if (Input.GetButtonDown ("Start")) {
+						
 					starter ();
 
 				}
-
 
 			}
 			break;
@@ -502,18 +621,25 @@ public class UIHandler : MonoBehaviour {
 	public void SelectChar(int pNumber){
 
 		if (!charSelection [pNumber].GetComponent<CharSelect> ().PlayerActive) {
-		
+			
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerActive = true;
 			match.NumPlayers++;
 			match.PlayerType [pNumber] = 0;
+			if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
+				if (teamCheck ()) {
+					startButton.SetActive (true);
+				}
+			} else {
+				startButton.SetActive (false);
+			}
 								
-		}else{
+		} else {
 
 			charSelection [pNumber].GetComponent<CharSelect> ().PlayerReady = true;
 			readyPlayers++;
 			if (readyPlayers == match.NumPlayers && match.NumPlayers > 1) {
-				if (teamCheck()) {
-					startButton.SetActive(true);
+				if (teamCheck ()) {
+					startButton.SetActive (true);
 				}
 			}
 		}
